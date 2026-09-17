@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentasi Interaktif Logaritma — UH 2 (P7)</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#38bdf8',
+              blue: '#3b82f6',
+              emerald: '#34d399',
+              amber: '#fbbf24',
+              purple: '#a855f7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- KaTeX CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Embedded & External CSS -->
+  <link rel="stylesheet" href="style.css?v=9">
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-surface: #111827;
+      --bg-surface-alt: #1f2937;
+      --border-color: #374151;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent-cyan: #38bdf8;
+      --accent-blue: #3b82f6;
+      --accent-emerald: #34d399;
+      --card-glow: rgba(56, 189, 248, 0.12);
+    }
+    .light {
+      --bg-primary: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-alt: #f1f5f9;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent-cyan: #0284c7;
+      --accent-blue: #2563eb;
+      --accent-emerald: #059669;
+      --card-glow: rgba(2, 132, 199, 0.08);
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+      overflow-x: hidden;
+    }
+    .katex-display { margin: 0 !important; }
+    .math-board .katex-display { margin: 0 !important; }
+    .math-board .text-left .katex-display,
+    .math-board .text-left .katex-display > .katex,
+    .math-board .text-left .katex-display > .katex > .katex-html {
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
+    .math-board .katex {
+      font-size: 2.1rem !important;
+      line-height: 1.35;
+    }
+    @media (min-width: 768px) {
+      .math-board .katex { font-size: 2.75rem !important; }
+    }
+    @media (min-width: 1200px) {
+      .math-board .katex { font-size: 3.15rem !important; }
+    }
+    .split-col .katex {
+      font-size: 1.65rem !important;
+      line-height: 1.35;
+    }
+    @media (min-width: 768px) {
+      .split-col .katex { font-size: 2.05rem !important; }
+    }
+    @media (min-width: 1200px) {
+      .split-col .katex { font-size: 2.25rem !important; }
+    }
+    .combine-col .katex {
+      font-size: 1.85rem !important;
+      line-height: 1.35;
+    }
+    @media (min-width: 768px) {
+      .combine-col .katex { font-size: 2.35rem !important; }
+    }
+    @media (min-width: 1200px) {
+      .combine-col .katex { font-size: 2.65rem !important; }
+    }
+    .stacked-header .katex {
+      font-size: 1.85rem !important;
+      line-height: 1.35;
+    }
+    @media (min-width: 768px) {
+      .stacked-header .katex { font-size: 2.25rem !important; }
+    }
+    @media (min-width: 1200px) {
+      .stacked-header .katex { font-size: 2.65rem !important; }
+    }
+    .stacked-grid .katex {
+      font-size: 1.75rem !important;
+      line-height: 1.35;
+    }
+    @media (min-width: 768px) {
+      .stacked-grid .katex { font-size: 2.15rem !important; }
+    }
+    @media (min-width: 1200px) {
+      .stacked-grid .katex { font-size: 2.45rem !important; }
+    }
+    .fade-appear { animation: fadeInOnly 0.25s ease-out forwards; }
+    @keyframes fadeInOnly {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .fade-pop-in { animation: fadeInOnly 0.25s ease-out forwards; }
+    .fade-slide-in { animation: fadeInOnly 0.25s ease-out forwards; }
+    .chalkboard-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 40px -15px var(--card-glow);
+    }
+    .final-glow { filter: drop-shadow(0 0 16px rgba(52, 211, 153, 0.4)); }
+    .katex .colorbox {
+      border-radius: 8px !important;
+      padding: 1px 5px !important;
+    }
+    .katex .fcolorbox {
+      border-radius: 12px !important;
+      padding: 4px 10px !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.35) !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col lg:flex-row bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-gray-100 transition-colors duration-300 selection:bg-cyan-500 selection:text-white overflow-x-hidden">
+
+  <!-- LEFT RAIL: Question & Set Navigation (Compact 1-Column) -->
+  <aside id="left-rail" class="w-full lg:w-44 xl:w-48 bg-white/95 dark:bg-gray-900/90 backdrop-blur-xl border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-gray-800 p-3.5 flex flex-col justify-between shrink-0 lg:h-screen lg:sticky lg:top-0 z-30 shadow-xs">
+    <!-- Top Brand & Navigation -->
+    <div class="space-y-3">
+      <!-- Brand & Header -->
+      <div class="flex items-center gap-2.5 pb-2 border-b border-slate-100 dark:border-gray-800/80">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white shadow-sm shadow-cyan-500/20 text-xs">
+          LOG
+        </div>
+        <div>
+          <h1 class="text-xs font-bold text-slate-900 dark:text-gray-100 flex items-center gap-1">
+            <span>Logaritma</span>
+            <span class="text-[9px] px-1 py-0.2 rounded bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 font-semibold">UH2</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Set Switcher (Stacked Vertically) -->
+      <div>
+        <label class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-gray-500 mb-1.5 block">Paket Soal</label>
+        <div class="flex flex-col gap-1 p-1 rounded-xl bg-slate-100 dark:bg-gray-800/80 border border-slate-200 dark:border-gray-700/60 text-xs font-semibold">
+          <button id="btn-set-a" class="w-full py-1.5 px-2.5 rounded-lg transition-all text-white bg-cyan-600 shadow-sm text-left flex items-center justify-between text-xs font-bold" onclick="switchSet('setA')">
+            <span>Set A</span>
+            <span class="text-[10px] opacity-75">Mandiri</span>
+          </button>
+          <button id="btn-set-b" class="w-full py-1.5 px-2.5 rounded-lg transition-all text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white text-left flex items-center justify-between text-xs font-semibold" onclick="switchSet('setB')">
+            <span>Set B</span>
+            <span class="text-[10px] opacity-75">Cermin</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Question Selector 1-Column List (1..10) -->
+      <div>
+        <div class="flex items-center justify-between mb-1.5 px-0.5">
+          <label class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-gray-500">Nomor Soal</label>
+          <span id="slide-counter-badge" class="text-[11px] font-bold text-cyan-700 dark:text-cyan-400">1 / 10</span>
+        </div>
+        <div id="question-pills" class="flex flex-col gap-1 overflow-y-auto pr-0.5 max-h-[calc(100vh-210px)]">
+          <!-- Populated by renderQuestionPills() in app.js -->
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CENTER STAGE: Math Chalkboard Presentation (Maximized) -->
+  <main class="flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-6 min-h-[520px] lg:h-screen lg:overflow-y-auto">
+    
+    <!-- Question Header & Badges -->
+    <div class="w-full max-w-5xl text-center mb-5">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950/60 border border-cyan-300 dark:border-cyan-800/80 text-cyan-700 dark:text-cyan-300 text-xs font-bold uppercase tracking-wider mb-2.5">
+        <span id="slide-badge-set">Set A</span>
+        <span class="text-slate-400 dark:text-gray-600">•</span>
+        <span id="slide-badge-category">Simulasi Mandiri</span>
+        <span class="text-slate-400 dark:text-gray-600">•</span>
+        <span id="slide-badge-num">Soal 1 dari 10</span>
+      </div>
+
+      <h2 id="question-prompt" class="text-base md:text-xl font-medium text-slate-600 dark:text-gray-400">
+        Tentukan nilai dari:
+      </h2>
+    </div>
+
+    <!-- Chalkboard Presentation Stage (Huge & Unconstrained) -->
+    <div class="w-full max-w-5xl rounded-3xl chalkboard-panel bg-white dark:bg-gradient-to-b dark:from-gray-900/95 dark:to-gray-950/95 border border-slate-200 dark:border-gray-800/80 p-8 md:p-14 shadow-2xl relative flex flex-col items-center justify-center min-h-[420px] md:min-h-[500px] overflow-x-auto">
+      <div id="chalkboard-stage" class="math-board font-serif text-slate-900 dark:text-gray-100 w-full flex justify-center items-center">
+        <!-- Rendered by KaTeX in app.js -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- RIGHT RAIL: Step Progress & Minimalist Actions (Ultra Slim) -->
+  <aside id="right-rail" class="w-full lg:w-20 xl:w-24 bg-white/95 dark:bg-gray-900/90 backdrop-blur-xl border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-gray-800 p-3 flex flex-col justify-between items-center shrink-0 lg:h-screen lg:sticky lg:top-0 z-30 shadow-xs">
+    <!-- Top: Reset & Step Progress Dots -->
+    <div class="w-full flex flex-col items-center space-y-4">
+      <!-- Reset Button -->
+      <button id="btn-reset-steps" onclick="resetSteps()" class="w-full py-2.5 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-slate-600 hover:text-slate-900 dark:text-gray-300 dark:hover:text-white flex flex-col items-center justify-center gap-1 border border-slate-200 dark:border-gray-700/80 transition-all shadow-2xs group" title="Ulangi dari Soal (R)">
+        <i data-lucide="rotate-ccw" class="w-4 h-4 group-hover:-rotate-45 transition-transform"></i>
+        <span class="text-[10px] font-bold tracking-tight">Reset</span>
+      </button>
+
+      <!-- Step Progress Dots (Vertical Track) -->
+      <div class="w-full py-3 px-1.5 rounded-xl bg-slate-50 dark:bg-gray-800/50 border border-slate-200/80 dark:border-gray-800/80 flex flex-col items-center gap-2.5">
+        <span class="text-[9px] font-bold uppercase tracking-wider text-slate-400 dark:text-gray-500">Step</span>
+        <div id="step-indicator-dots" class="flex flex-col items-center gap-2 py-1">
+          <!-- Injected dynamically as vertical pills/dots -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Actions: Theme, Shortcuts, Fullscreen (Vertical Column) -->
+    <div class="w-full pt-3 border-t border-slate-200 dark:border-gray-800/80 flex flex-col items-center gap-2">
+      <button id="btn-theme" class="w-full p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-300 transition-colors border border-slate-200 dark:border-gray-700 flex items-center justify-center" title="Ganti Tema (T)" onclick="toggleTheme()">
+        <i data-lucide="moon" class="w-4 h-4 text-cyan-400"></i>
+      </button>
+      <button id="btn-shortcuts" class="w-full p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-300 transition-colors border border-slate-200 dark:border-gray-700 flex items-center justify-center" title="Bantuan Keyboard (?)" onclick="toggleHelpModal()">
+        <i data-lucide="keyboard" class="w-4 h-4"></i>
+      </button>
+      <button id="btn-fullscreen" class="w-full p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-300 transition-colors border border-slate-200 dark:border-gray-700 flex items-center justify-center" title="Layar Penuh (F)" onclick="toggleFullscreen()">
+        <i data-lucide="maximize" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- KEYBOARD HELP MODAL -->
+  <div id="help-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-2xl p-6 shadow-2xl relative text-slate-800 dark:text-gray-200">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200 dark:border-gray-800">
+        <h3 class="text-base font-bold flex items-center gap-2 text-cyan-600 dark:text-cyan-400">
+          <i data-lucide="keyboard" class="w-5 h-5"></i>
+          Pintasan Keyboard (Shortcuts)
+        </h3>
+        <button onclick="toggleHelpModal()" class="text-slate-400 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="space-y-2.5 text-xs">
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-gray-800/50">
+          <span class="text-slate-600 dark:text-gray-300">Langkah Berikutnya</span>
+          <kbd class="px-2 py-1 rounded bg-slate-100 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 font-mono text-cyan-700 dark:text-cyan-300">Space / → / Enter</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-gray-800/50">
+          <span class="text-slate-600 dark:text-gray-300">Langkah Sebelumnya</span>
+          <kbd class="px-2 py-1 rounded bg-slate-100 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 font-mono text-cyan-700 dark:text-cyan-300">← / Backspace</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-gray-800/50">
+          <span class="text-slate-600 dark:text-gray-300">Reset Langkah ke Soal Awal</span>
+          <kbd class="px-2 py-1 rounded bg-slate-100 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 font-mono text-cyan-700 dark:text-cyan-300">R</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-gray-800/50">
+          <span class="text-slate-600 dark:text-gray-300">Soal Berikutnya</span>
+          <kbd class="px-2 py-1 rounded bg-slate-100 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 font-mono text-cyan-700 dark:text-cyan-300">↓ / PageDown</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-gray-800/50">
+          <span class="text-slate-600 dark:text-gray-300">Soal Sebelumnya</span>
+          <kbd class="px-2 py-1 rounded bg-slate-100 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 font-mono text-cyan-700 dark:text-cyan-300">↑ / PageUp</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-gray-800/50">
+          <span class="text-slate-600 dark:text-gray-300">Layar Penuh (Fullscreen)</span>
+          <kbd class="px-2 py-1 rounded bg-slate-100 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 font-mono text-cyan-700 dark:text-cyan-300">F</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-gray-800/50">
+          <span class="text-slate-600 dark:text-gray-300">Ganti Tema (Dark / Light)</span>
+          <kbd class="px-2 py-1 rounded bg-slate-100 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 font-mono text-cyan-700 dark:text-cyan-300">T</kbd>
+        </div>
+        <div class="flex items-center justify-between py-1">
+          <span class="text-slate-600 dark:text-gray-300">Lompat ke Soal 1..10</span>
+          <kbd class="px-2 py-1 rounded bg-slate-100 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 font-mono text-cyan-700 dark:text-cyan-300">Angka 1 - 9, 0</kbd>
+        </div>
+      </div>
+      <div class="mt-5 text-center">
+        <button onclick="toggleHelpModal()" class="w-full py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-semibold text-white text-xs">
+          Mengerti
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="slides-data.js?v=17"></script>
+  <script src="app.js?v=17"></script>
+</body>
+</html>
