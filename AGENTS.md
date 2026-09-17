@@ -193,8 +193,8 @@ Digunakan untuk soal logaritma dengan sifat pengurangan dua suku basis sama (${}
 - Penurunan langkah menggunakan grid 2 kolom `[min-content_auto]` yang terpusat rapi secara horizontal di bawah header, menjaga kolom tanda sama dengan (`=`) membentuk satu garis vertikal lurus yang simetris di tengah papan tulis tanpa ruang kosong berlebih di sisi kiri.
 
 ### B. Alur Penurunan Pedagogis Bertahap (6 Langkah Presisi)
-1. **Langkah 1**: Sifat pengurangan logaritma basis sama diubah menjadi pembagian numerus dalam tanda kurung pecahan:
-   $$= {}^a\log\left(\frac{b}{c}\right)$$
+1. **Langkah 1**: Sifat pengurangan logaritma basis sama diubah menjadi pembagian numerus dalam tanda kurung pecahan, dengan numerus yang dikurangkan (penyebut) disorot warna **Rose/Coral Red** (`\textcolor{#f87171}{...}`):
+   $$= {}^a\log\left(\frac{b}{\textcolor{#f87171}{c}}\right)$$
 2. **Langkah 2**: Evaluasi hasil pembagian numerus ($108 : 4 = 27$ pada Set A; $48 : 3 = 16$ pada Set B):
    $$= {}^a\log(\dots)$$
 3. **Langkah 3**: Numerus diubah menjadi bentuk bilangan berpangkat basis $a$, dengan pangkat numerus diberi warna **Amber bold** (`\textcolor{#fbbf24}{\mathbf{...}}`):
@@ -204,7 +204,7 @@ Digunakan untuk soal logaritma dengan sifat pengurangan dua suku basis sama (${}
 5. **Langkah 5**: Penerapan identitas dasar logaritma ${}^a\log a = 1$ (warna kembali netral/putih sesuai aturan 4.B):
    $$= n \cdot 1$$
 6. **Langkah 6**: Hasil perkalian akhir dibingkai menggunakan kapsul hijau neon emerald dengan pendar halus (*soft glow*):
-   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{n}}$}$$
+   $$= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{n}$}$$
 
 ---
 
@@ -234,7 +234,7 @@ Digunakan untuk soal logaritma yang memerlukan faktorisasi numerus menjadi perka
 5. **Langkah 5**: Substitusi variabel aljabar yang diketahui ($a, b$ pada Set A; $p, q$ pada Set B) ke dalam rumus (warna kembali netral/putih):
    $$= k \cdot a + b$$
 6. **Langkah 6**: Tuliskan bentuk aljabar paling sederhana di dalam kapsul hijau neon emerald bercahaya:
-   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{ka + b}}$}$$
+   $$= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{ka + b}$}$$
 
 ---
 
@@ -250,9 +250,9 @@ Digunakan untuk soal logaritma dengan gabungan operasi penjumlahan dan pengurang
 - Penurunan langkah menggunakan grid 2 kolom `[min-content_auto]` yang terpusat rapi secara horizontal.
 
 ### B. Alur Penurunan Pedagogis Bertahap (7 Langkah Presisi)
-1. **Langkah 1**: Gabungkan seluruh suku menjadi satu logaritma tunggal; numerus suku bernilai positif dikalikan di pembilang dan suku bernilai negatif dibagi di penyebut:
-   $$= {}^a\log\left(\frac{\text{numerus (+)}}{\text{numerus (-)}}\right)$$
-2. **Langkah 2**: Evaluasi hasil perkalian pada pembilang pecahan:
+1. **Langkah 1**: Gabungkan seluruh suku menjadi satu logaritma tunggal; numerus suku bernilai positif dikalikan di pembilang (putih netral) dan numerus suku bernilai negatif ditarik ke penyebut dengan penyorotan warna **Rose/Coral Red** (`\textcolor{#f87171}{...}`):
+   $$= {}^a\log\left(\frac{\text{numerus (+)}}{\textcolor{#f87171}{\text{numerus (-)}}}\right)$$
+2. **Langkah 2**: Evaluasi hasil perkalian pada pembilang pecahan (warna kembali netral):
    $$= {}^a\log\left(\frac{k}{\text{penyebut}}\right)$$
 3. **Langkah 3**: Selesaikan operasi pembagian pecahan numerus menjadi satu bilangan bulat:
    $$= {}^a\log m$$
@@ -333,9 +333,9 @@ Digunakan untuk soal logaritma dengan sifat mengubah basis ${}^a\log b = \frac{{
   - Chalkboard container dilengkapi class `my-auto` dan padding optimal `p-6 md:py-8 md:px-12` agar seluruh 6 baris pecahan dan kotak jawaban akhir tampil utuh tanpa scroll vertikal pada proyektor kelas.
 
 ### B. Alur Penurunan Pedagogis Bertahap (6 Langkah Presisi)
-1. **Langkah 1**: Ubah ke bentuk pecahan basis perantara yang paling sering muncul dari yang diketahui (${}^c\log$):
-   $$= \frac{{}^c\log b}{{}^c\log a}$$
-2. **Langkah 2**: Faktorkan numerus pembilang dan penyebut menjadi perkalian faktor-faktor prima:
+1. **Langkah 1**: Ubah ke bentuk pecahan basis perantara yang paling sering muncul dari yang diketahui (${}^c\log$), dengan **Numerus asal** disorot **Amber** (`\textcolor{#fbbf24}{...}`) di pembilang dan **Basis asal** disorot **Cyan** (`\textcolor{#38bdf8}{...}`) di penyebut:
+   $$= \frac{{}^c\log \textcolor{#fbbf24}{b}}{{{}^c\log \textcolor{#38bdf8}{a}}}$$
+2. **Langkah 2**: Faktorkan numerus pembilang dan penyebut menjadi perkalian faktor-faktor prima (warna kembali netral):
    $$= \frac{{}^c\log(m \cdot n)}{{}^c\log(p \cdot q)}$$
 3. **Langkah 3**: Jabarkan perkalian numerus menjadi penjumlahan logaritma, dan ubah bilangan komposit menjadi bilangan berpangkat basis:
    $$= \frac{{}^c\log(f^{\textcolor{#fbbf24}{\mathbf{2}}}) + {}^c\log n}{{}^c\log p + {}^c\log q}$$

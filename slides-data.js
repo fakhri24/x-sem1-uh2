@@ -148,7 +148,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "=",
-          rhs: "{}^3\\log\\left(\\frac{108}{4}\\right)",
+          rhs: "{}^3\\log\\left(\\frac{108}{\\textcolor{#f87171}{4}}\\right)",
           isFinal: false
         },
         {
@@ -242,7 +242,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "=",
-          rhs: "{}^5\\log\\left(\\frac{50 \\cdot 4 \\cdot 5}{8}\\right)",
+          rhs: "{}^5\\log\\left(\\frac{50 \\cdot 4 \\cdot 5}{\\textcolor{#f87171}{8}}\\right)",
           isFinal: false
         },
         {
@@ -437,7 +437,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "=",
-          rhs: "\\frac{{}^2\\log 45}{{}^2\\log 6}",
+          rhs: "\\frac{{}^2\\log \\textcolor{#fbbf24}{45}}{{{}^2\\log \\textcolor{#38bdf8}{6}}}",
           isFinal: false
         },
         {
@@ -617,7 +617,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "=",
-          rhs: "{}^2\\log\\left(\\frac{48}{3}\\right)",
+          rhs: "{}^2\\log\\left(\\frac{48}{\\textcolor{#f87171}{3}}\\right)",
           isFinal: false
         },
         {
@@ -711,7 +711,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "=",
-          rhs: "{}^3\\log\\left(\\frac{15 \\cdot 6 \\cdot 3}{10}\\right)",
+          rhs: "{}^3\\log\\left(\\frac{15 \\cdot 6 \\cdot 3}{\\textcolor{#f87171}{10}}\\right)",
           isFinal: false
         },
         {
@@ -906,7 +906,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "=",
-          rhs: "\\frac{{}^5\\log 20}{{}^5\\log 15}",
+          rhs: "\\frac{{}^5\\log \\textcolor{#fbbf24}{20}}{{{}^5\\log \\textcolor{#38bdf8}{15}}}",
           isFinal: false
         },
         {
