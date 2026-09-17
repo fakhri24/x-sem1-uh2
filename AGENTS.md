@@ -171,4 +171,31 @@ Sesuai instruksi baku, setiap ada penambahan fitur, penyelesaian soal, atau revi
    - Repository dihubungkan langsung ke GitHub Pages (deploy from branch `main`, root `/`).
    - Setiap kali `git push` selesai, versi web langsung terbit dan dapat diakses dari browser maupun remote proyektor kelas tanpa instalasi lokal.
 
+---
+
+## 9. Standar Soal Sifat Pembagian Numerus (Standar Baku Soal 4)
+
+Digunakan untuk soal logaritma dengan sifat pengurangan dua suku basis sama (${}^a\log b - {}^a\log c = {}^a\log\left(\frac{b}{c}\right)$), misalnya:
+- **Set A**: ${}^3\log 108 - {}^3\log 4$
+- **Set B**: ${}^2\log 48 - {}^2\log 3$
+
+### A. Tata Letak (Stacked Top-Header Layout)
+- Menggunakan `layout: "stacked"` agar rumus soal awal terpampang rapi di tengah atas kanvas (`initialLHS: "... = \\dots"`), dengan pembatas horizontal tipis di bawahnya.
+- Penurunan langkah menggunakan grid 2 kolom `[min-content_auto]` yang terpusat rapi secara horizontal di bawah header, menjaga kolom tanda sama dengan (`=`) membentuk satu garis vertikal lurus yang simetris di tengah papan tulis tanpa ruang kosong berlebih di sisi kiri.
+
+### B. Alur Penurunan Pedagogis Bertahap (6 Langkah Presisi)
+1. **Langkah 1**: Sifat pengurangan logaritma basis sama diubah menjadi pembagian numerus dalam tanda kurung pecahan:
+   $$= {}^a\log\left(\frac{b}{c}\right)$$
+2. **Langkah 2**: Evaluasi hasil pembagian numerus ($108 : 4 = 27$ pada Set A; $48 : 3 = 16$ pada Set B):
+   $$= {}^a\log(\dots)$$
+3. **Langkah 3**: Numerus diubah menjadi bentuk bilangan berpangkat basis $a$, dengan pangkat numerus diberi warna **Amber bold** (`\textcolor{#fbbf24}{\mathbf{...}}`):
+   $$= {}^a\log(a^{\textcolor{#fbbf24}{\mathbf{n}}})$$
+4. **Langkah 4**: Pangkat numerus ditarik ke depan sebagai koefisien pengali:
+   $$= \textcolor{#fbbf24}{\mathbf{n}} \cdot {}^a\log a$$
+5. **Langkah 5**: Penerapan identitas dasar logaritma ${}^a\log a = 1$ (warna kembali netral/putih sesuai aturan 4.B):
+   $$= n \cdot 1$$
+6. **Langkah 6**: Hasil perkalian akhir dibingkai menggunakan kapsul hijau neon emerald dengan pendar halus (*soft glow*):
+   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{n}}$}$$
+
+
 

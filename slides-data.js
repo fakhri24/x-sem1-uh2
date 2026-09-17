@@ -142,8 +142,46 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 4 — Set A",
       prompt: "Tentukan nilai dari:",
-      initialLHS: "{}^3\\log 108 - {}^3\\log 4",
-      steps: []
+      layout: "stacked",
+      initialLHS: "{}^3\\log 108 - {}^3\\log 4 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^3\\log\\left(\\frac{108}{4}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^3\\log 27",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^3\\log(3^{\\textcolor{#fbbf24}{\\mathbf{3}}})",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{3}} \\cdot {}^3\\log 3",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "3 \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{3}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 5,
@@ -234,8 +272,46 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 4 — Set B",
       prompt: "Tentukan nilai dari:",
-      initialLHS: "{}^2\\log 48 - {}^2\\log 3",
-      steps: []
+      layout: "stacked",
+      initialLHS: "{}^2\\log 48 - {}^2\\log 3 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^2\\log\\left(\\frac{48}{3}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^2\\log 16",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^2\\log(2^{\\textcolor{#fbbf24}{\\mathbf{4}}})",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{4}} \\cdot {}^2\\log 2",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "4 \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{4}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 5,
