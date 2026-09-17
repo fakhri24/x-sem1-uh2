@@ -197,5 +197,36 @@ Digunakan untuk soal logaritma dengan sifat pengurangan dua suku basis sama (${}
 6. **Langkah 6**: Hasil perkalian akhir dibingkai menggunakan kapsul hijau neon emerald dengan pendar halus (*soft glow*):
    $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{n}}$}$$
 
+---
+
+## 10. Standar Soal Substitusi Variabel / Faktorisasi Numerus (Standar Baku Soal 5)
+
+Digunakan untuk soal logaritma yang memerlukan faktorisasi numerus menjadi perkalian faktor yang sesuai dan substitusi nilai variabel yang diketahui dari soal, misalnya:
+- **Set A**: Jika ${}^2\log 3 = a$ dan ${}^2\log 7 = b$, tentukan nilai dari ${}^2\log 63$
+- **Set B**: Jika ${}^3\log 2 = p$ dan ${}^3\log 5 = q$, tentukan nilai dari ${}^3\log 20$
+
+### A. Fitur Parser KaTeX pada Header Soal (`renderPromptWithKaTeX`)
+- Teks pengantar yang mengandung formula matematika diapit tanda dollar (`$...$`) otomatis diparsing dan dirender inline menggunakan KaTeX, sehingga persamaan seperti `${}^2\log 3 = a$` tampil proporsional, rapi, dan menyatu dengan teks pengantar.
+
+### B. Tata Letak (Stacked Top-Header Layout)
+- Menggunakan `layout: "stacked"`.
+- Rumus target awal terpampang rapi di tengah atas kanvas (`initialLHS: "... = \\dots"`), dengan pembatas horizontal tipis di bawahnya.
+- Penurunan langkah menggunakan grid 2 kolom `[min-content_auto]` yang terpusat secara simetris di tengah kanvas papan tulis.
+
+### C. Alur Penurunan Pedagogis Bertahap (6 Langkah Presisi)
+1. **Langkah 1**: Faktorkan numerus menjadi perkalian dua bilangan ($63 = 9 \cdot 7$ pada Set A; $20 = 4 \cdot 5$ pada Set B):
+   $$= {}^a\log(m \cdot n)$$
+2. **Langkah 2**: Terapkan sifat perkalian numerus logaritma menjadi penjumlahan:
+   $$= {}^a\log m + {}^a\log n$$
+3. **Langkah 3**: Nyatakan bilangan komposit sebagai bilangan berpangkat basis logaritma yang sesuai, dengan pangkat diwarnai **Amber bold** (`\textcolor{#fbbf24}{\mathbf{...}}`):
+   $$= {}^a\log(b^{\textcolor{#fbbf24}{\mathbf{k}}}) + {}^a\log n$$
+4. **Langkah 4**: Tarik pangkat numerus ke depan menjadi koefisien pengali:
+   $$= \textcolor{#fbbf24}{\mathbf{k}} \cdot {}^a\log b + {}^a\log n$$
+5. **Langkah 5**: Substitusi variabel aljabar yang diketahui ($a, b$ pada Set A; $p, q$ pada Set B) ke dalam rumus (warna kembali netral/putih):
+   $$= k \cdot a + b$$
+6. **Langkah 6**: Tuliskan bentuk aljabar paling sederhana di dalam kapsul hijau neon emerald bercahaya:
+   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{ka + b}}$}$$
+
+
 
 

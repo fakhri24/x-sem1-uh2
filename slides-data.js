@@ -189,8 +189,46 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 5 — Set A",
       prompt: "Jika ${}^2\\log 3 = a$ dan ${}^2\\log 7 = b$, tentukan nilai dari:",
-      initialLHS: "{}^2\\log 63",
-      steps: []
+      layout: "stacked",
+      initialLHS: "{}^2\\log 63 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^2\\log(9 \\cdot 7)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^2\\log 9 + {}^2\\log 7",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^2\\log(3^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^2\\log 7",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^2\\log 3 + {}^2\\log 7",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "2 \\cdot a + b",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{2a + b}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 6,
@@ -319,8 +357,46 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 5 — Set B",
       prompt: "Jika ${}^3\\log 2 = p$ dan ${}^3\\log 5 = q$, tentukan nilai dari:",
-      initialLHS: "{}^3\\log 20",
-      steps: []
+      layout: "stacked",
+      initialLHS: "{}^3\\log 20 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^3\\log(4 \\cdot 5)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^3\\log 4 + {}^3\\log 5",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^3\\log(2^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^3\\log 5",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^3\\log 2 + {}^3\\log 5",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "2 \\cdot p + q",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{2p + q}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 6,

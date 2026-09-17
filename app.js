@@ -62,6 +62,35 @@ function renderKaTeX(latex, element, displayMode = true) {
   }
 }
 
+// Helper to render mixed text and KaTeX math ($...$) in question prompts
+function renderPromptWithKaTeX(text, element) {
+  if (!text) {
+    element.textContent = 'Tentukan nilai dari:';
+    return;
+  }
+  if (!text.includes('$') || !window.katex) {
+    element.textContent = text;
+    return;
+  }
+  element.innerHTML = '';
+  const parts = text.split('$');
+  for (let i = 0; i < parts.length; i++) {
+    if (i % 2 === 1) {
+      // Inside inline math $...$
+      const span = document.createElement('span');
+      span.className = 'inline-block mx-1 font-serif text-slate-800 dark:text-gray-200';
+      try {
+        katex.render(parts[i], span, { displayMode: false, throwOnError: false });
+      } catch (err) {
+        span.textContent = parts[i];
+      }
+      element.appendChild(span);
+    } else if (parts[i].length > 0) {
+      element.appendChild(document.createTextNode(parts[i]));
+    }
+  }
+}
+
 // Render 1..10 question buttons in Left Rail (1-Column Vertical List)
 function renderQuestionPills() {
   const container = document.getElementById('question-pills');
@@ -127,7 +156,7 @@ function renderSlide() {
 
   // Prompt text
   const promptEl = document.getElementById('question-prompt');
-  promptEl.textContent = question.prompt || 'Tentukan nilai dari:';
+  renderPromptWithKaTeX(question.prompt || 'Tentukan nilai dari:', promptEl);
 
   // 2. Render Chalkboard Stage
   const stage = document.getElementById('chalkboard-stage');
