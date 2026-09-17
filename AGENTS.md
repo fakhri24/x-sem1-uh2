@@ -227,6 +227,36 @@ Digunakan untuk soal logaritma yang memerlukan faktorisasi numerus menjadi perka
 6. **Langkah 6**: Tuliskan bentuk aljabar paling sederhana di dalam kapsul hijau neon emerald bercahaya:
    $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{ka + b}}$}$$
 
+---
+
+## 11. Standar Soal Operasi Logaritma Multi-Suku (Standar Baku Soal 6)
+
+Digunakan untuk soal logaritma dengan gabungan operasi penjumlahan dan pengurangan numerus multi-suku pada basis yang sama, misalnya:
+- **Set A**: ${}^5\log 50 - {}^5\log 8 + {}^5\log 4 + {}^5\log 5$
+- **Set B**: ${}^3\log 15 + {}^3\log 6 + {}^3\log 3 - {}^3\log 10$
+
+### A. Tata Letak (Stacked Top-Header Layout)
+- Menggunakan `layout: "stacked"`.
+- Rumus awal multi-suku ditampilkan utuh di bagian tengah atas kanvas (`initialLHS: "... = \\dots"`), dibatasi oleh garis horizontal pemisah.
+- Penurunan langkah menggunakan grid 2 kolom `[min-content_auto]` yang terpusat rapi secara horizontal.
+
+### B. Alur Penurunan Pedagogis Bertahap (7 Langkah Presisi)
+1. **Langkah 1**: Gabungkan seluruh suku menjadi satu logaritma tunggal; numerus suku bernilai positif dikalikan di pembilang dan suku bernilai negatif dibagi di penyebut:
+   $$= {}^a\log\left(\frac{\text{numerus (+)}}{\text{numerus (-)}}\right)$$
+2. **Langkah 2**: Evaluasi hasil perkalian pada pembilang pecahan:
+   $$= {}^a\log\left(\frac{k}{\text{penyebut}}\right)$$
+3. **Langkah 3**: Selesaikan operasi pembagian pecahan numerus menjadi satu bilangan bulat:
+   $$= {}^a\log m$$
+4. **Langkah 4**: Nyatakan numerus sebagai bilangan berpangkat basis $a$, dengan eksponen diwarnai **Amber bold** (`\textcolor{#fbbf24}{\mathbf{...}}`):
+   $$= {}^a\log(a^{\textcolor{#fbbf24}{\mathbf{n}}})$$
+5. **Langkah 5**: Tarik eksponen ke depan menjadi koefisien pengali:
+   $$= \textcolor{#fbbf24}{\mathbf{n}} \cdot {}^a\log a$$
+6. **Langkah 6**: Terapkan sifat dasar ${}^a\log a = 1$ (warna kembali netral/putih):
+   $$= n \cdot 1$$
+7. **Langkah 7**: Tampilkan hasil akhir dalam kapsul hijau neon emerald bercahaya:
+   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{n}}$}$$
+
+
 
 
 

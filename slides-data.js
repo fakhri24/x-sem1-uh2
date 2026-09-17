@@ -236,8 +236,52 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 6 — Set A",
       prompt: "Sederhanakan bentuk berikut:",
-      initialLHS: "{}^5\\log 50 - {}^5\\log 8 + {}^5\\log 4 + {}^5\\log 5",
-      steps: []
+      layout: "stacked",
+      initialLHS: "{}^5\\log 50 - {}^5\\log 8 + {}^5\\log 4 + {}^5\\log 5 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^5\\log\\left(\\frac{50 \\cdot 4 \\cdot 5}{8}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^5\\log\\left(\\frac{1000}{8}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^5\\log 125",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "{}^5\\log(5^{\\textcolor{#fbbf24}{\\mathbf{3}}})",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{3}} \\cdot {}^5\\log 5",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "3 \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{3}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 7,
@@ -404,8 +448,52 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 6 — Set B",
       prompt: "Sederhanakan bentuk berikut:",
-      initialLHS: "{}^3\\log 15 + {}^3\\log 6 + {}^3\\log 3 - {}^3\\log 10",
-      steps: []
+      layout: "stacked",
+      initialLHS: "{}^3\\log 15 + {}^3\\log 6 + {}^3\\log 3 - {}^3\\log 10 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^3\\log\\left(\\frac{15 \\cdot 6 \\cdot 3}{10}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^3\\log\\left(\\frac{270}{10}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^3\\log 27",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "{}^3\\log(3^{\\textcolor{#fbbf24}{\\mathbf{3}}})",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{3}} \\cdot {}^3\\log 3",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "3 \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{3}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 7,
