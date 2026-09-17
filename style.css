@@ -101,6 +101,28 @@ body {
   .stacked-grid .katex { font-size: 2.45rem !important; }
 }
 
+.stacked-header.dense-header .katex {
+  font-size: 1.6rem !important;
+  line-height: 1.25;
+}
+@media (min-width: 768px) {
+  .stacked-header.dense-header .katex { font-size: 1.95rem !important; }
+}
+@media (min-width: 1200px) {
+  .stacked-header.dense-header .katex { font-size: 2.2rem !important; }
+}
+
+.stacked-grid.dense-grid .katex {
+  font-size: 1.45rem !important;
+  line-height: 1.25;
+}
+@media (min-width: 768px) {
+  .stacked-grid.dense-grid .katex { font-size: 1.72rem !important; }
+}
+@media (min-width: 1200px) {
+  .stacked-grid.dense-grid .katex { font-size: 1.95rem !important; }
+}
+
 /* Smooth step animations */
 .fade-pop-in {
   animation: fadeInPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;

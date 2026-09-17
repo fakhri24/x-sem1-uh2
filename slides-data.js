@@ -289,8 +289,34 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 7 — Set A",
       prompt: "Sederhanakan bentuk pecahan:",
-      initialLHS: "\\frac{({}^5\\log x)^2 - ({}^5\\log y)^2}{{}^5\\log x - {}^5\\log y}",
-      steps: []
+      layout: "stacked",
+      initialLHS: "\\frac{({}^5\\log x)^2 - ({}^5\\log y)^2}{{}^5\\log x - {}^5\\log y} = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "\\frac{({}^5\\log x + {}^5\\log y)\\textcolor{#38bdf8}{\\mathbf{({}^5\\log x - {}^5\\log y)}}}{\\textcolor{#38bdf8}{\\mathbf{{}^5\\log x - {}^5\\log y}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^5\\log x + {}^5\\log y",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^5\\log(x \\cdot y)",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{{}^5\\log(xy)}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 8,
@@ -298,8 +324,52 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 8 — Set A",
       prompt: "Tentukan nilai $a$ jika:",
+      layout: "stacked",
       initialLHS: "{}^x\\log(3a - 1) \\cdot {}^5\\log x = 3",
-      steps: []
+      steps: [
+        {
+          stepNum: 1,
+          eq: "\\implies",
+          rhs: "{}^5\\log \\textcolor{#38bdf8}{\\mathbf{x}} \\cdot {}^{\\textcolor{#38bdf8}{\\mathbf{x}}}\\log(3a - 1) = 3",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "\\implies",
+          rhs: "{}^5\\log(3a - 1) = 3",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "\\implies",
+          rhs: "3a - 1 = 5^{\\textcolor{#fbbf24}{\\mathbf{3}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "\\implies",
+          rhs: "3a - 1 = 125",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "\\implies",
+          rhs: "3a = 125 + 1 = 126",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "\\implies",
+          rhs: "a = \\frac{126}{3}",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "\\implies",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{a = 42}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 9,
@@ -307,8 +377,52 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 9 — Set A",
       prompt: "Tentukan nilai $x$ jika:",
+      layout: "stacked",
       initialLHS: "{}^2\\log x \\cdot {}^5\\log 4 = 6",
-      steps: []
+      steps: [
+        {
+          stepNum: 1,
+          eq: "\\implies",
+          rhs: "{}^5\\log 4 \\cdot {}^2\\log x = 6",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "\\implies",
+          rhs: "{}^5\\log(2^{\\textcolor{#fbbf24}{\\mathbf{2}}}) \\cdot {}^2\\log x = 6",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "\\implies",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^5\\log \\textcolor{#38bdf8}{\\mathbf{2}} \\cdot {}^{\\textcolor{#38bdf8}{\\mathbf{2}}}\\log x = 6",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "\\implies",
+          rhs: "2 \\cdot {}^5\\log x = 6",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "\\implies",
+          rhs: "{}^5\\log x = \\frac{6}{2} = 3",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "\\implies",
+          rhs: "x = 5^{\\textcolor{#fbbf24}{\\mathbf{3}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "\\implies",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{x = 125}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 10,
@@ -316,8 +430,47 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 10 — Set A",
       prompt: "Jika ${}^2\\log 3 = a$ dan ${}^3\\log 5 = b$, tentukan nilai dari:",
-      initialLHS: "{}^6\\log 45",
-      steps: []
+      layout: "stacked",
+      dense: true,
+      initialLHS: "{}^6\\log 45 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "\\frac{{}^2\\log 45}{{}^2\\log 6}",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "\\frac{{}^2\\log(9 \\cdot 5)}{{}^2\\log(2 \\cdot 3)}",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "\\frac{{}^2\\log(3^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^2\\log 5}{{}^2\\log 2 + {}^2\\log 3}",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\frac{\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^2\\log 3 + ({}^2\\log 3 \\cdot {}^3\\log 5)}{1 + {}^2\\log 3}",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "\\frac{2(a) + (a)(b)}{1 + a}",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{\\frac{2a + ab}{a + 1}}}$}",
+          isFinal: true
+        }
+      ]
     }
   ],
   setB: [
@@ -328,7 +481,36 @@ const SLIDES_DATA = {
       title: "Soal 1 — Set B",
       prompt: "Tentukan nilai dari:",
       initialLHS: "{}^{27}\\log 81",
-      steps: []
+      steps: [
+        {
+          stepNum: 1,
+          position: "beside",
+          eq: "=",
+          rhs: "{}^{3^{\\textcolor{#38bdf8}{\\mathbf{3}}}}\\log 3^{\\textcolor{#fbbf24}{\\mathbf{4}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          position: "newline",
+          eq: "=",
+          rhs: "\\frac{\\textcolor{#fbbf24}{\\mathbf{4}}}{\\textcolor{#38bdf8}{\\mathbf{3}}} \\cdot {}^3\\log 3",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          position: "newline",
+          eq: "=",
+          rhs: "\\frac{4}{3} \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          position: "newline",
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{\\frac{4}{3}}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 2,
@@ -337,7 +519,44 @@ const SLIDES_DATA = {
       title: "Soal 2 — Set B",
       prompt: "Tentukan nilai dari:",
       initialLHS: "9^{{}^3\\log 6} - 8^{{}^2\\log 3}",
-      steps: []
+      layout: "split-combine",
+      totalSteps: 13,
+      split: {
+        left: {
+          badge: "Suku Pertama",
+          badgeColor: "cyan",
+          initialLHS: "9^{{}^3\\log 6}",
+          steps: [
+            { stepNum: 1, eq: "=", rhs: "(3^{\\textcolor{#38bdf8}{\\mathbf{2}}})^{{}^3\\log 6}" },
+            { stepNum: 2, eq: "=", rhs: "3^{\\textcolor{#38bdf8}{\\mathbf{2}} \\cdot {}^3\\log 6}" },
+            { stepNum: 3, eq: "=", rhs: "3^{{}^3\\log 6^{\\textcolor{#38bdf8}{\\mathbf{2}}}}" },
+            { stepNum: 4, eq: "=", rhs: "6^{\\textcolor{#38bdf8}{\\mathbf{2}}}" },
+            { stepNum: 5, eq: "=", rhs: "\\textcolor{#38bdf8}{\\mathbf{36}}", isSubFinal: true }
+          ]
+        },
+        right: {
+          badge: "Suku Kedua",
+          badgeColor: "amber",
+          initialLHS: "8^{{}^2\\log 3}",
+          steps: [
+            { stepNum: 6, eq: "=", rhs: "(2^{\\textcolor{#fbbf24}{\\mathbf{3}}})^{{}^2\\log 3}" },
+            { stepNum: 7, eq: "=", rhs: "2^{\\textcolor{#fbbf24}{\\mathbf{3}} \\cdot {}^2\\log 3}" },
+            { stepNum: 8, eq: "=", rhs: "2^{{}^2\\log 3^{\\textcolor{#fbbf24}{\\mathbf{3}}}}" },
+            { stepNum: 9, eq: "=", rhs: "3^{\\textcolor{#fbbf24}{\\mathbf{3}}}" },
+            { stepNum: 10, eq: "=", rhs: "\\textcolor{#fbbf24}{\\mathbf{27}}", isSubFinal: true }
+          ]
+        },
+        combine: {
+          badge: "Penggabungan & Hasil Akhir",
+          badgeColor: "emerald",
+          initialLHS: "9^{{}^3\\log 6} - 8^{{}^2\\log 3}",
+          lhsStepNum: 11,
+          steps: [
+            { stepNum: 12, eq: "=", rhs: "\\textcolor{#38bdf8}{\\mathbf{36}} - \\textcolor{#fbbf24}{\\mathbf{27}}" },
+            { stepNum: 13, eq: "=", rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{9}}$}", isFinal: true }
+          ]
+        }
+      }
     },
     {
       id: 3,
@@ -345,8 +564,46 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 3 — Set B",
       prompt: "Tentukan hasil dari:",
-      initialLHS: "{}^3\\log 5 \\cdot {}^2\\log 9 \\cdot {}^5\\log 8",
-      steps: []
+      layout: "stacked",
+      initialLHS: "{}^3\\log 5 \\cdot {}^2\\log 9 \\cdot {}^5\\log 8 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^2\\log 9 \\cdot {}^3\\log \\textcolor{#38bdf8}{\\mathbf{5}} \\cdot {}^{\\textcolor{#38bdf8}{\\mathbf{5}}}\\log 8",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^2\\log(3^{\\textcolor{#fbbf24}{\\mathbf{2}}}) \\cdot {}^3\\log 8",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^2\\log \\textcolor{#38bdf8}{\\mathbf{3}} \\cdot {}^{\\textcolor{#38bdf8}{\\mathbf{3}}}\\log 8",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "2 \\cdot {}^2\\log 8",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "2 \\cdot 3",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{6}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 4,
@@ -501,8 +758,34 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 7 — Set B",
       prompt: "Sederhanakan bentuk pecahan:",
-      initialLHS: "\\frac{({}^3\\log p)^2 - ({}^3\\log q)^2}{{}^3\\log p + {}^3\\log q}",
-      steps: []
+      layout: "stacked",
+      initialLHS: "\\frac{({}^3\\log p)^2 - ({}^3\\log q)^2}{{}^3\\log p + {}^3\\log q} = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "\\frac{\\textcolor{#38bdf8}{\\mathbf{({}^3\\log p + {}^3\\log q)}}({}^3\\log p - {}^3\\log q)}{\\textcolor{#38bdf8}{\\mathbf{{}^3\\log p + {}^3\\log q}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^3\\log p - {}^3\\log q",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^3\\log\\left(\\frac{p}{q}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{{}^3\\log\\left(\\frac{p}{q}\\right)}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 8,
@@ -510,8 +793,52 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 8 — Set B",
       prompt: "Tentukan nilai $k$ jika:",
+      layout: "stacked",
       initialLHS: "{}^x\\log(2k + 1) \\cdot {}^3\\log x = 4",
-      steps: []
+      steps: [
+        {
+          stepNum: 1,
+          eq: "\\implies",
+          rhs: "{}^3\\log \\textcolor{#38bdf8}{\\mathbf{x}} \\cdot {}^{\\textcolor{#38bdf8}{\\mathbf{x}}}\\log(2k + 1) = 4",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "\\implies",
+          rhs: "{}^3\\log(2k + 1) = 4",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "\\implies",
+          rhs: "2k + 1 = 3^{\\textcolor{#fbbf24}{\\mathbf{4}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "\\implies",
+          rhs: "2k + 1 = 81",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "\\implies",
+          rhs: "2k = 81 - 1 = 80",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "\\implies",
+          rhs: "k = \\frac{80}{2}",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "\\implies",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{k = 40}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 9,
@@ -519,8 +846,52 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 9 — Set B",
       prompt: "Tentukan nilai $x$ jika:",
+      layout: "stacked",
       initialLHS: "{}^3\\log x \\cdot {}^2\\log 9 = 8",
-      steps: []
+      steps: [
+        {
+          stepNum: 1,
+          eq: "\\implies",
+          rhs: "{}^2\\log 9 \\cdot {}^3\\log x = 8",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "\\implies",
+          rhs: "{}^2\\log(3^{\\textcolor{#fbbf24}{\\mathbf{2}}}) \\cdot {}^3\\log x = 8",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "\\implies",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^2\\log \\textcolor{#38bdf8}{\\mathbf{3}} \\cdot {}^{\\textcolor{#38bdf8}{\\mathbf{3}}}\\log x = 8",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "\\implies",
+          rhs: "2 \\cdot {}^2\\log x = 8",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "\\implies",
+          rhs: "{}^2\\log x = \\frac{8}{2} = 4",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "\\implies",
+          rhs: "x = 2^{\\textcolor{#fbbf24}{\\mathbf{4}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "\\implies",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{x = 16}}$}",
+          isFinal: true
+        }
+      ]
     },
     {
       id: 10,
@@ -528,8 +899,47 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 10 — Set B",
       prompt: "Jika ${}^5\\log 3 = p$ dan ${}^3\\log 2 = q$, tentukan nilai dari:",
-      initialLHS: "{}^{15}\\log 20",
-      steps: []
+      layout: "stacked",
+      dense: true,
+      initialLHS: "{}^{15}\\log 20 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "\\frac{{}^5\\log 20}{{}^5\\log 15}",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "\\frac{{}^5\\log(4 \\cdot 5)}{{}^5\\log(3 \\cdot 5)}",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "\\frac{{}^5\\log(2^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^5\\log 5}{{}^5\\log 3 + {}^5\\log 5}",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\frac{\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot ({}^5\\log 3 \\cdot {}^3\\log 2) + 1}{{}^5\\log 3 + 1}",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "\\frac{2(p \\cdot q) + 1}{p + 1}",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{\\frac{2pq + 1}{p + 1}}}$}",
+          isFinal: true
+        }
+      ]
     }
   ]
 };

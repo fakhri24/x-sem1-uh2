@@ -256,6 +256,88 @@ Digunakan untuk soal logaritma dengan gabungan operasi penjumlahan dan pengurang
 7. **Langkah 7**: Tampilkan hasil akhir dalam kapsul hijau neon emerald bercahaya:
    $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{n}}$}$$
 
+---
+
+## 12. Standar Soal Aljabar Selisih Kuadrat Logaritma (Standar Baku Soal 7)
+
+Digunakan untuk soal pecahan aljabar yang melibatkan bentuk selisih kuadrat $(\log x)^2 - (\log y)^2$ dibagi $(\log x - \log y)$, misalnya:
+- **Set A**: $\frac{({}^5\log x)^2 - ({}^5\log y)^2}{{}^5\log x - {}^5\log y}$
+- **Set B**: $\frac{({}^3\log a)^2 - ({}^3\log b)^2}{{}^3\log a - {}^3\log b}$
+
+### A. Tata Letak (Stacked Top-Header Layout)
+- Menggunakan `layout: "stacked"`.
+- Rumus pecahan aljabar awal terpampang utuh di posisi tengah atas (`initialLHS: "... = \\dots"`).
+- Penurunan langkah menggunakan grid 2 kolom `[min-content_auto]`.
+
+### B. Alur Penurunan Pedagogis Bertahap (4 Langkah Presisi)
+1. **Langkah 1**: Faktorkan pembilang menggunakan identitas selisih kuadrat $A^2 - B^2 = (A - B)(A + B)$:
+   $$= \frac{({}^a\log x - {}^a\log y)({}^a\log x + {}^a\log y)}{{}^a\log x - {}^a\log y}$$
+2. **Langkah 2**: Sorot faktor pembagi yang saling meniadakan (*cancellation*) menggunakan warna **Cyan bold** (`\textcolor{#38bdf8}{\mathbf{...}}`):
+   $$= \frac{\textcolor{#38bdf8}{\mathbf{({}^a\log x - {}^a\log y)}}({}^a\log x + {}^a\log y)}{\textcolor{#38bdf8}{\mathbf{{}^a\log x - {}^a\log y}}}$$
+3. **Langkah 3**: Tuliskan suku sisa setelah faktor pembagi dicoret:
+   $$= {}^a\log x + {}^a\log y$$
+4. **Langkah 4**: Terapkan sifat penjumlahan logaritma menjadi perkalian numerus, lalu bingkai hasil akhir dalam kapsul hijau neon emerald:
+   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{{}^a\log(xy)}}$}$$
+
+---
+
+## 13. Standar Soal Persamaan Logaritma / Implikasi Vertikal (Standar Baku Soal 8 & Soal 9)
+
+Digunakan untuk soal persamaan logaritma yang mencari nilai variabel (misal nilai $a$ atau nilai $x$):
+- **Soal 8 Set A**: ${}^6\log a = {}^6\log 2 + {}^6\log 3 + {}^6\log 7$
+- **Soal 8 Set B**: ${}^4\log y = {}^4\log 3 + {}^4\log 5 + {}^4\log 2$
+- **Soal 9 Set A**: ${}^5\log 4 \cdot {}^2\log x = 6$
+- **Soal 9 Set B**: ${}^2\log 9 \cdot {}^3\log x = 8$
+
+### A. Implication Spine Notasi `\implies`
+- Pada persamaan logaritma, kolom operator di sebelah kiri menggunakan tanda implikasi vertikal `\implies` ($\implies$), bukan tanda sama dengan (`=`).
+- Hal ini mempertahankan ketelitian notasi matematika: ruas kiri dan ruas kanan merupakan satu kesatuan persamaan yang bertransformasi langkah demi langkah.
+
+### B. Alur Penurunan Pedagogis Bertahap
+- **Untuk Soal 8 (Penyederhanaan Ruas Kanan & Kesamaan Numerus — 7 Langkah)**:
+  1. $\implies {}^b\log a = {}^b\log(p \cdot q \cdot r)$ (sifat penjumlahan menjadi perkalian numerus)
+  2. $\implies {}^b\log a = {}^b\log(k \cdot r)$ (perkalian bertahap)
+  3. $\implies {}^b\log a = {}^b\log(N)$ (hasil kali akhir numerus)
+  4. $\implies a = N$ (sifat kesamaan logaritma basis sama ${}^b\log f(x) = {}^b\log g(x) \implies f(x) = g(x)$)
+  5. Nilai variabel akhir dibingkai dalam kapsul hijau neon emerald: $\implies \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{a = N}}$}$.
+- **Untuk Soal 9 (Sifat Rantai Logaritma Berantai — 7 Langkah)**:
+  1. Susun faktor agar rantai numerus-basis bertemu: numerus suku pertama diubah menjadi bilangan berpangkat: ${}^b\log(c^{\textcolor{#fbbf24}{\mathbf{k}}})$.
+  2. Pangkat numerus ditarik ke depan sebagai koefisien pengali: $\textcolor{#fbbf24}{\mathbf{k}} \cdot {}^b\log c \cdot {}^c\log x = M$.
+  3. Terapkan sifat rantai ${}^b\log \textcolor{#38bdf8}{\mathbf{c}} \cdot {}^{\textcolor{#38bdf8}{\mathbf{c}}}\log x = {}^b\log x$.
+  4. Bagi kedua ruas dengan koefisien pengali: ${}^b\log x = \frac{M}{k}$.
+  5. Konversi bentuk logaritma ke bentuk eksponen: $x = b^{\textcolor{#fbbf24}{\mathbf{m}}}$.
+  6. Evaluasi perpangkatan dan bingkai hasil akhir: $\implies \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{x = N}}$}$.
+
+---
+
+## 14. Standar Soal Mengubah Basis Logaritma & Format Padat / Dense Layout (Standar Baku Soal 10)
+
+Digunakan untuk soal logaritma dengan sifat mengubah basis ${}^a\log b = \frac{{}^c\log b}{{}^c\log a}$, di mana penjabaran melibatkan pecahan bertumpuk multi-baris yang panjang:
+- **Set A**: Jika ${}^2\log 3 = a$ dan ${}^3\log 5 = b$, tentukan nilai dari ${}^6\log 45$
+- **Set B**: Jika ${}^5\log 3 = p$ dan ${}^3\log 2 = q$, tentukan nilai dari ${}^{15}\log 20$
+
+### A. Fitur Tata Letak Padat (Dense Layout: `.dense-grid` & `.dense-header`)
+- Ketika sebuah soal memiliki $\ge 6$ baris penurunan yang didominasi oleh bentuk pecahan ($\frac{A}{B}$), atribut `dense: true` diaktifkan secara eksplisit (atau terdeteksi secara otomatis oleh `renderStackedSlide`).
+- Penyesuaian CSS otomatis:
+  - Jarak antarbaris dipadatkan: `gap-y-1.5 md:gap-y-2` (dari standar `gap-y-3 md:gap-y-4`).
+  - Ukuran tipografi KaTeX disesuaikan proporsional: font size `1.72rem` s.d. `1.95rem` (tetap ekstra besar dan sangat jelas dari baris belakang kelas, namun menghemat ruang vertikal hingga 35%).
+  - Chalkboard container dilengkapi class `my-auto` dan padding optimal `p-6 md:py-8 md:px-12` agar seluruh 6 baris pecahan dan kotak jawaban akhir tampil utuh tanpa scroll vertikal pada proyektor kelas.
+
+### B. Alur Penurunan Pedagogis Bertahap (6 Langkah Presisi)
+1. **Langkah 1**: Ubah ke bentuk pecahan basis perantara yang paling sering muncul dari yang diketahui (${}^c\log$):
+   $$= \frac{{}^c\log b}{{}^c\log a}$$
+2. **Langkah 2**: Faktorkan numerus pembilang dan penyebut menjadi perkalian faktor-faktor prima:
+   $$= \frac{{}^c\log(m \cdot n)}{{}^c\log(p \cdot q)}$$
+3. **Langkah 3**: Jabarkan perkalian numerus menjadi penjumlahan logaritma, dan ubah bilangan komposit menjadi bilangan berpangkat basis:
+   $$= \frac{{}^c\log(f^{\textcolor{#fbbf24}{\mathbf{2}}}) + {}^c\log n}{{}^c\log p + {}^c\log q}$$
+4. **Langkah 4**: Tarik pangkat numerus ke depan, dan gunakan sifat perkalian rantai jika ada suku yang basisnya perlu ditranslasikan (${}^2\log 5 = {}^2\log 3 \cdot {}^3\log 5$):
+   $$= \frac{\textcolor{#fbbf24}{\mathbf{2}} \cdot {}^c\log 3 + ({}^2\log 3 \cdot {}^3\log 5)}{1 + {}^2\log 3}$$
+5. **Langkah 5**: Substitusi variabel aljabar ($a, b$ atau $p, q$):
+   $$= \frac{2a + ab}{1 + a}$$
+6. **Langkah 6**: Bingkai jawaban akhir aljabar dalam kapsul hijau neon emerald bercahaya:
+   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{\frac{2a + ab}{a + 1}}}$}$$
+
+
 
 
 

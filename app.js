@@ -487,12 +487,15 @@ function renderSplitCombineSlide(question, stage) {
 
 // Render Stacked / Top-Header Layout (Soal 3, etc.)
 function renderStackedSlide(question, stage) {
+  const isDense = Boolean(question.dense || (question.steps && question.steps.length >= 6 && question.steps.some(s => s.rhs && s.rhs.includes('\\frac'))));
   const container = document.createElement('div');
-  container.className = 'stacked-slide w-full max-w-4xl mx-auto flex flex-col items-center py-2';
+  container.className = `stacked-slide w-full max-w-4xl mx-auto flex flex-col items-center ${isDense ? 'py-0.5' : 'py-2'}`;
 
   // 1. Question Header / Persistent Formula at top center
   const headerWrap = document.createElement('div');
-  headerWrap.className = 'stacked-header text-center pb-3 mb-4 md:mb-5 border-b border-slate-200/80 dark:border-gray-800/80 w-full max-w-2xl';
+  headerWrap.className = isDense
+    ? 'stacked-header dense-header text-center pb-2 mb-2 md:mb-3 border-b border-slate-200/80 dark:border-gray-800/80 w-full max-w-2xl'
+    : 'stacked-header text-center pb-3 mb-4 md:mb-5 border-b border-slate-200/80 dark:border-gray-800/80 w-full max-w-2xl';
   
   const formulaEl = document.createElement('div');
   formulaEl.className = 'text-slate-900 dark:text-gray-100 font-serif';
@@ -503,7 +506,9 @@ function renderStackedSlide(question, stage) {
   // 2. Derivation Grid: 2 columns [min-content_auto]
   // In-place reveal with zero drift: all rows pre-rendered
   const grid = document.createElement('div');
-  grid.className = 'stacked-grid grid grid-cols-[min-content_auto] items-center gap-y-3 md:gap-y-4 w-fit mx-auto';
+  grid.className = isDense
+    ? 'stacked-grid dense-grid grid grid-cols-[min-content_auto] items-center gap-y-1.5 md:gap-y-2 w-fit mx-auto'
+    : 'stacked-grid grid grid-cols-[min-content_auto] items-center gap-y-3 md:gap-y-4 w-fit mx-auto';
 
   const maxSteps = question.totalSteps || (question.steps ? question.steps.length : 0);
 
