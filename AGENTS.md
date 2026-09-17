@@ -79,8 +79,17 @@ Untuk menuntun mata siswa memahami asal-usul perubahan angka secara visual:
 
 ### C. Jawaban Akhir (Emerald Highlight Box)
 - Jawaban akhir dibingkai menggunakan kapsul hijau emerald dengan border menyala:
-  `\fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{...}}}$}`
+  `\fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{...}$}`
 - Tanda sama dengan pada baris akhir ikut berubah menjadi hijau `text-emerald-500` dengan efek pendar halus (*soft glow*).
+- *Catatan Mutlak*: Jangan gunakan `\mathbf` di dalam kotak jawaban akhir. Cukup gunakan `\textcolor{#6ee7b7}{...}` agar tipografi variabel matematika ($a, b, x, y, p, q$) tetap murni menggunakan font matematika KaTeX (*math italic*).
+
+### D. Larangan Penggunaan `\mathbf` pada Variabel Aljabar & Faktor Penyorotan
+- Dalam LaTeX dan KaTeX, macro `\mathbf` berfungsi mengubah teks menjadi *Math Bold Roman* (huruf cetak tegak / upright text).
+- Jika diterapkan pada variabel huruf aljabar ($x, y, a, b, p, q$), huruf tersebut akan kehilangan lengkungan/kemiringan khas rumus matematika (*math italic*) dan berubah kaku menjadi font teks biasa ($\mathbf{x}, \mathbf{y}, \mathbf{a}, \mathbf{b}$). Hal ini membuat rumus terlihat "seperti tidak menggunakan KaTeX" dan tidak konsisten dengan suku di sebelahnya.
+- **Aturan Baku**:
+  1. `\mathbf` **HANYA** boleh digunakan untuk angka/digit numerik murni (misal eksponen: `\mathbf{2}`, `\mathbf{3}`).
+  2. Untuk variabel huruf aljabar dan penyorotan suku (seperti pencoretan Soal 7 atau variabel perantara Soal 8), **selalu gunakan penyorotan warna murni**: `\textcolor{#38bdf8}{({}^5\log x - {}^5\log y)}` dan `\textcolor{#38bdf8}{x}` tanpa `\mathbf`.
+  3. Di dalam `\fcolorbox`, selalu gunakan format murni: `\fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{...}$}`.
 
 ---
 
@@ -93,7 +102,7 @@ Untuk menuntun mata siswa memahami asal-usul perubahan angka secara visual:
    - Salah: `\\\\textcolor` (akan mencetak literal `\textcolor` merah di layar)
 2. **Math Mode di dalam Box**:
    Setiap isi di dalam `\\fcolorbox` atau `\\colorbox` harus diapit tanda dollar `$ ... $`, contoh:
-   `\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{\\frac{3}{2}}}$}`
+   `\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{3}{2}}$}`
 3. **Penyusunan Struktur Data Soal**:
    ```javascript
    {
@@ -272,12 +281,12 @@ Digunakan untuk soal pecahan aljabar yang melibatkan bentuk selisih kuadrat $(\l
 ### B. Alur Penurunan Pedagogis Bertahap (4 Langkah Presisi)
 1. **Langkah 1**: Faktorkan pembilang menggunakan identitas selisih kuadrat $A^2 - B^2 = (A - B)(A + B)$:
    $$= \frac{({}^a\log x - {}^a\log y)({}^a\log x + {}^a\log y)}{{}^a\log x - {}^a\log y}$$
-2. **Langkah 2**: Sorot faktor pembagi yang saling meniadakan (*cancellation*) menggunakan warna **Cyan bold** (`\textcolor{#38bdf8}{\mathbf{...}}`):
-   $$= \frac{\textcolor{#38bdf8}{\mathbf{({}^a\log x - {}^a\log y)}}({}^a\log x + {}^a\log y)}{\textcolor{#38bdf8}{\mathbf{{}^a\log x - {}^a\log y}}}$$
+2. **Langkah 2**: Sorot faktor pembagi yang saling meniadakan (*cancellation*) menggunakan warna **Cyan** murni (`\textcolor{#38bdf8}{...}`):
+   $$= \frac{\textcolor{#38bdf8}{({}^a\log x - {}^a\log y)}({}^a\log x + {}^a\log y)}{\textcolor{#38bdf8}{({}^a\log x - {}^a\log y)}}$$
 3. **Langkah 3**: Tuliskan suku sisa setelah faktor pembagi dicoret:
    $$= {}^a\log x + {}^a\log y$$
 4. **Langkah 4**: Terapkan sifat penjumlahan logaritma menjadi perkalian numerus, lalu bingkai hasil akhir dalam kapsul hijau neon emerald:
-   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{{}^a\log(xy)}}$}$$
+   $$= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{{}^a\log(xy)}$}$$
 
 ---
 
@@ -299,14 +308,14 @@ Digunakan untuk soal persamaan logaritma yang mencari nilai variabel (misal nila
   2. $\implies {}^b\log a = {}^b\log(k \cdot r)$ (perkalian bertahap)
   3. $\implies {}^b\log a = {}^b\log(N)$ (hasil kali akhir numerus)
   4. $\implies a = N$ (sifat kesamaan logaritma basis sama ${}^b\log f(x) = {}^b\log g(x) \implies f(x) = g(x)$)
-  5. Nilai variabel akhir dibingkai dalam kapsul hijau neon emerald: $\implies \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{a = N}}$}$.
+  5. Nilai variabel akhir dibingkai dalam kapsul hijau neon emerald: $\implies \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{a = N}$}$.
 - **Untuk Soal 9 (Sifat Rantai Logaritma Berantai — 7 Langkah)**:
   1. Susun faktor agar rantai numerus-basis bertemu: numerus suku pertama diubah menjadi bilangan berpangkat: ${}^b\log(c^{\textcolor{#fbbf24}{\mathbf{k}}})$.
   2. Pangkat numerus ditarik ke depan sebagai koefisien pengali: $\textcolor{#fbbf24}{\mathbf{k}} \cdot {}^b\log c \cdot {}^c\log x = M$.
-  3. Terapkan sifat rantai ${}^b\log \textcolor{#38bdf8}{\mathbf{c}} \cdot {}^{\textcolor{#38bdf8}{\mathbf{c}}}\log x = {}^b\log x$.
+  3. Terapkan sifat rantai ${}^b\log \textcolor{#38bdf8}{c} \cdot {}^{\textcolor{#38bdf8}{c}}\log x = {}^b\log x$.
   4. Bagi kedua ruas dengan koefisien pengali: ${}^b\log x = \frac{M}{k}$.
   5. Konversi bentuk logaritma ke bentuk eksponen: $x = b^{\textcolor{#fbbf24}{\mathbf{m}}}$.
-  6. Evaluasi perpangkatan dan bingkai hasil akhir: $\implies \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{x = N}}$}$.
+  6. Evaluasi perpangkatan dan bingkai hasil akhir: $\implies \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{x = N}$}$.
 
 ---
 
@@ -335,7 +344,7 @@ Digunakan untuk soal logaritma dengan sifat mengubah basis ${}^a\log b = \frac{{
 5. **Langkah 5**: Substitusi variabel aljabar ($a, b$ atau $p, q$):
    $$= \frac{2a + ab}{1 + a}$$
 6. **Langkah 6**: Bingkai jawaban akhir aljabar dalam kapsul hijau neon emerald bercahaya:
-   $$= \fcolorbox{#10b981}{#064e3b}{$\mathbf{\textcolor{#6ee7b7}{\frac{2a + ab}{a + 1}}}$}$$
+   $$= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{\frac{2a + ab}{a + 1}}$}$$
 
 
 

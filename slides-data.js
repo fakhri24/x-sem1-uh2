@@ -38,7 +38,7 @@ const SLIDES_DATA = {
           stepNum: 4,
           position: "newline",
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{\\frac{3}{2}}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{3}{2}}$}",
           isFinal: true
         }
       ]
@@ -84,7 +84,7 @@ const SLIDES_DATA = {
           lhsStepNum: 11,
           steps: [
             { stepNum: 12, eq: "=", rhs: "\\textcolor{#38bdf8}{\\mathbf{8}} + \\textcolor{#fbbf24}{\\mathbf{9}}" },
-            { stepNum: 13, eq: "=", rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{17}}$}", isFinal: true }
+            { stepNum: 13, eq: "=", rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{17}$}", isFinal: true }
           ]
         }
       }
@@ -131,7 +131,7 @@ const SLIDES_DATA = {
         {
           stepNum: 6,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{6}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{6}$}",
           isFinal: true
         }
       ]
@@ -178,7 +178,7 @@ const SLIDES_DATA = {
         {
           stepNum: 6,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{3}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{3}$}",
           isFinal: true
         }
       ]
@@ -225,7 +225,7 @@ const SLIDES_DATA = {
         {
           stepNum: 6,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{2a + b}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{2a + b}$}",
           isFinal: true
         }
       ]
@@ -278,7 +278,7 @@ const SLIDES_DATA = {
         {
           stepNum: 7,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{3}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{3}$}",
           isFinal: true
         }
       ]
@@ -295,7 +295,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "=",
-          rhs: "\\frac{({}^5\\log x + {}^5\\log y)\\textcolor{#38bdf8}{\\mathbf{({}^5\\log x - {}^5\\log y)}}}{\\textcolor{#38bdf8}{\\mathbf{{}^5\\log x - {}^5\\log y}}}",
+          rhs: "\\frac{({}^5\\log x + {}^5\\log y)\\textcolor{#38bdf8}{({}^5\\log x - {}^5\\log y)}}{\\textcolor{#38bdf8}{({}^5\\log x - {}^5\\log y)}}",
           isFinal: false
         },
         {
@@ -313,7 +313,7 @@ const SLIDES_DATA = {
         {
           stepNum: 4,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{{}^5\\log(xy)}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{{}^5\\log(xy)}$}",
           isFinal: true
         }
       ]
@@ -330,7 +330,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "\\implies",
-          rhs: "{}^5\\log \\textcolor{#38bdf8}{\\mathbf{x}} \\cdot {}^{\\textcolor{#38bdf8}{\\mathbf{x}}}\\log(3a - 1) = 3",
+          rhs: "{}^5\\log \\textcolor{#38bdf8}{x} \\cdot {}^{\\textcolor{#38bdf8}{x}}\\log(3a - 1) = 3",
           isFinal: false
         },
         {
@@ -366,7 +366,7 @@ const SLIDES_DATA = {
         {
           stepNum: 7,
           eq: "\\implies",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{a = 42}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{a = 42}$}",
           isFinal: true
         }
       ]
@@ -419,7 +419,7 @@ const SLIDES_DATA = {
         {
           stepNum: 7,
           eq: "\\implies",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{x = 125}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{x = 125}$}",
           isFinal: true
         }
       ]
@@ -467,7 +467,7 @@ const SLIDES_DATA = {
         {
           stepNum: 6,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{\\frac{2a + ab}{a + 1}}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{2a + ab}{a + 1}}$}",
           isFinal: true
         }
       ]
@@ -507,7 +507,7 @@ const SLIDES_DATA = {
           stepNum: 4,
           position: "newline",
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{\\frac{4}{3}}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{4}{3}}$}",
           isFinal: true
         }
       ]
@@ -553,7 +553,7 @@ const SLIDES_DATA = {
           lhsStepNum: 11,
           steps: [
             { stepNum: 12, eq: "=", rhs: "\\textcolor{#38bdf8}{\\mathbf{36}} - \\textcolor{#fbbf24}{\\mathbf{27}}" },
-            { stepNum: 13, eq: "=", rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{9}}$}", isFinal: true }
+            { stepNum: 13, eq: "=", rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{9}$}", isFinal: true }
           ]
         }
       }
@@ -600,7 +600,7 @@ const SLIDES_DATA = {
         {
           stepNum: 6,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{6}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{6}$}",
           isFinal: true
         }
       ]
@@ -647,7 +647,7 @@ const SLIDES_DATA = {
         {
           stepNum: 6,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{4}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{4}$}",
           isFinal: true
         }
       ]
@@ -694,7 +694,7 @@ const SLIDES_DATA = {
         {
           stepNum: 6,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{2p + q}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{2p + q}$}",
           isFinal: true
         }
       ]
@@ -747,7 +747,7 @@ const SLIDES_DATA = {
         {
           stepNum: 7,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{3}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{3}$}",
           isFinal: true
         }
       ]
@@ -764,7 +764,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "=",
-          rhs: "\\frac{\\textcolor{#38bdf8}{\\mathbf{({}^3\\log p + {}^3\\log q)}}({}^3\\log p - {}^3\\log q)}{\\textcolor{#38bdf8}{\\mathbf{{}^3\\log p + {}^3\\log q}}}",
+          rhs: "\\frac{\\textcolor{#38bdf8}{({}^3\\log p + {}^3\\log q)}({}^3\\log p - {}^3\\log q)}{\\textcolor{#38bdf8}{({}^3\\log p + {}^3\\log q)}}",
           isFinal: false
         },
         {
@@ -782,7 +782,7 @@ const SLIDES_DATA = {
         {
           stepNum: 4,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{{}^3\\log\\left(\\frac{p}{q}\\right)}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{{}^3\\log\\left(\\frac{p}{q}\\right)}$}",
           isFinal: true
         }
       ]
@@ -799,7 +799,7 @@ const SLIDES_DATA = {
         {
           stepNum: 1,
           eq: "\\implies",
-          rhs: "{}^3\\log \\textcolor{#38bdf8}{\\mathbf{x}} \\cdot {}^{\\textcolor{#38bdf8}{\\mathbf{x}}}\\log(2k + 1) = 4",
+          rhs: "{}^3\\log \\textcolor{#38bdf8}{x} \\cdot {}^{\\textcolor{#38bdf8}{x}}\\log(2k + 1) = 4",
           isFinal: false
         },
         {
@@ -835,7 +835,7 @@ const SLIDES_DATA = {
         {
           stepNum: 7,
           eq: "\\implies",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{k = 40}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{k = 40}$}",
           isFinal: true
         }
       ]
@@ -888,7 +888,7 @@ const SLIDES_DATA = {
         {
           stepNum: 7,
           eq: "\\implies",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{x = 16}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{x = 16}$}",
           isFinal: true
         }
       ]
@@ -936,7 +936,7 @@ const SLIDES_DATA = {
         {
           stepNum: 6,
           eq: "=",
-          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\mathbf{\\textcolor{#6ee7b7}{\\frac{2pq + 1}{p + 1}}}$}",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{2pq + 1}{p + 1}}$}",
           isFinal: true
         }
       ]
