@@ -324,7 +324,11 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 8 — Set A",
       prompt: "Tentukan nilai $a$ jika:",
-      layout: "stacked",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Logaritma", badgeColor: "cyan" },
+        { badge: "Penyelesaian Aljabar", badgeColor: "amber" }
+      ],
       initialLHS: "{}^x\\log(3a - 1) \\cdot {}^5\\log x = 3",
       steps: [
         {
@@ -354,17 +358,23 @@ const SLIDES_DATA = {
         {
           stepNum: 5,
           eq: "\\implies",
-          rhs: "3a = 125 + 1 = 126",
+          rhs: "3a = 125 + 1",
           isFinal: false
         },
         {
           stepNum: 6,
           eq: "\\implies",
-          rhs: "a = \\frac{126}{3}",
+          rhs: "3a = 126",
           isFinal: false
         },
         {
           stepNum: 7,
+          eq: "\\implies",
+          rhs: "a = \\frac{126}{3}",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
           eq: "\\implies",
           rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{a = 42}$}",
           isFinal: true
@@ -377,7 +387,11 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 9 — Set A",
       prompt: "Tentukan nilai $x$ jika:",
-      layout: "stacked",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Logaritma Rantai", badgeColor: "cyan" },
+        { badge: "Menentukan Nilai x", badgeColor: "amber" }
+      ],
       initialLHS: "{}^2\\log x \\cdot {}^5\\log 4 = 6",
       steps: [
         {
@@ -407,17 +421,23 @@ const SLIDES_DATA = {
         {
           stepNum: 5,
           eq: "\\implies",
-          rhs: "{}^5\\log x = \\frac{6}{2} = 3",
+          rhs: "{}^5\\log x = \\frac{6}{2}",
           isFinal: false
         },
         {
           stepNum: 6,
           eq: "\\implies",
-          rhs: "x = 5^{\\textcolor{#fbbf24}{\\mathbf{3}}}",
+          rhs: "{}^5\\log x = 3",
           isFinal: false
         },
         {
           stepNum: 7,
+          eq: "\\implies",
+          rhs: "x = 5^{\\textcolor{#fbbf24}{\\mathbf{3}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
           eq: "\\implies",
           rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{x = 125}$}",
           isFinal: true
@@ -793,7 +813,11 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 8 — Set B",
       prompt: "Tentukan nilai $k$ jika:",
-      layout: "stacked",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Logaritma", badgeColor: "cyan" },
+        { badge: "Penyelesaian Aljabar", badgeColor: "amber" }
+      ],
       initialLHS: "{}^x\\log(2k + 1) \\cdot {}^3\\log x = 4",
       steps: [
         {
@@ -823,17 +847,23 @@ const SLIDES_DATA = {
         {
           stepNum: 5,
           eq: "\\implies",
-          rhs: "2k = 81 - 1 = 80",
+          rhs: "2k = 81 - 1",
           isFinal: false
         },
         {
           stepNum: 6,
           eq: "\\implies",
-          rhs: "k = \\frac{80}{2}",
+          rhs: "2k = 80",
           isFinal: false
         },
         {
           stepNum: 7,
+          eq: "\\implies",
+          rhs: "k = \\frac{80}{2}",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
           eq: "\\implies",
           rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{k = 40}$}",
           isFinal: true
@@ -846,7 +876,11 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 9 — Set B",
       prompt: "Tentukan nilai $x$ jika:",
-      layout: "stacked",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Logaritma Rantai", badgeColor: "cyan" },
+        { badge: "Menentukan Nilai x", badgeColor: "amber" }
+      ],
       initialLHS: "{}^3\\log x \\cdot {}^2\\log 9 = 8",
       steps: [
         {
@@ -876,17 +910,23 @@ const SLIDES_DATA = {
         {
           stepNum: 5,
           eq: "\\implies",
-          rhs: "{}^2\\log x = \\frac{8}{2} = 4",
+          rhs: "{}^2\\log x = \\frac{8}{2}",
           isFinal: false
         },
         {
           stepNum: 6,
           eq: "\\implies",
-          rhs: "x = 2^{\\textcolor{#fbbf24}{\\mathbf{4}}}",
+          rhs: "{}^2\\log x = 4",
           isFinal: false
         },
         {
           stepNum: 7,
+          eq: "\\implies",
+          rhs: "x = 2^{\\textcolor{#fbbf24}{\\mathbf{4}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
           eq: "\\implies",
           rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{x = 16}$}",
           isFinal: true

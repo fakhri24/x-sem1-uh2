@@ -290,32 +290,40 @@ Digunakan untuk soal pecahan aljabar yang melibatkan bentuk selisih kuadrat $(\l
 
 ---
 
-## 13. Standar Soal Persamaan Logaritma / Implikasi Vertikal (Standar Baku Soal 8 & Soal 9)
+## 13. Standar Soal Persamaan Logaritma & Tata Letak Dua Kolom (Standar Baku Soal 8 & Soal 9)
 
 Digunakan untuk soal persamaan logaritma yang mencari nilai variabel (misal nilai $a$ atau nilai $x$):
-- **Soal 8 Set A**: ${}^6\log a = {}^6\log 2 + {}^6\log 3 + {}^6\log 7$
-- **Soal 8 Set B**: ${}^4\log y = {}^4\log 3 + {}^4\log 5 + {}^4\log 2$
-- **Soal 9 Set A**: ${}^5\log 4 \cdot {}^2\log x = 6$
-- **Soal 9 Set B**: ${}^2\log 9 \cdot {}^3\log x = 8$
+- **Soal 8 Set A**: ${}^x\log(3a - 1) \cdot {}^5\log x = 3$
+- **Soal 8 Set B**: ${}^x\log(2k + 1) \cdot {}^3\log x = 4$
+- **Soal 9 Set A**: ${}^2\log x \cdot {}^5\log 4 = 6$
+- **Soal 9 Set B**: ${}^3\log x \cdot {}^2\log 9 = 8$
 
-### A. Implication Spine Notasi `\implies`
+### A. Larangan Persamaan Berantai (No Chained Equations)
+- **Aturan Baku**: Dilarang menggabungkan dua tanda sama dengan dalam satu baris persamaan (misal: $3a = 125 + 1 = 126$ atau ${}^5\log x = \frac{6}{2} = 3$).
+- Setiap tahap operasi perpindahan ruas dan evaluasi aritmatika **wajib dipisah menjadi baris tersendiri**:
+  - Baris 1: $\implies 3a = 125 + 1$
+  - Baris 2: $\implies 3a = 126$
+- Hal ini menjaga ketelitian notasi matematika aljabar formal dan mempermudah siswa memahami proses langkah demi langkah.
+
+### B. Implication Spine Notasi `\implies`
 - Pada persamaan logaritma, kolom operator di sebelah kiri menggunakan tanda implikasi vertikal `\implies` ($\implies$), bukan tanda sama dengan (`=`).
-- Hal ini mempertahankan ketelitian notasi matematika: ruas kiri dan ruas kanan merupakan satu kesatuan persamaan yang bertransformasi langkah demi langkah.
+- Ruas kiri dan ruas kanan merupakan satu kesatuan persamaan yang bertransformasi langkah demi langkah.
 
-### B. Alur Penurunan Pedagogis Bertahap
-- **Untuk Soal 8 (Penyederhanaan Ruas Kanan & Kesamaan Numerus — 7 Langkah)**:
-  1. $\implies {}^b\log a = {}^b\log(p \cdot q \cdot r)$ (sifat penjumlahan menjadi perkalian numerus)
-  2. $\implies {}^b\log a = {}^b\log(k \cdot r)$ (perkalian bertahap)
-  3. $\implies {}^b\log a = {}^b\log(N)$ (hasil kali akhir numerus)
-  4. $\implies a = N$ (sifat kesamaan logaritma basis sama ${}^b\log f(x) = {}^b\log g(x) \implies f(x) = g(x)$)
-  5. Nilai variabel akhir dibingkai dalam kapsul hijau neon emerald: $\implies \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{a = N}$}$.
-- **Untuk Soal 9 (Sifat Rantai Logaritma Berantai — 7 Langkah)**:
-  1. Susun faktor agar rantai numerus-basis bertemu: numerus suku pertama diubah menjadi bilangan berpangkat: ${}^b\log(c^{\textcolor{#fbbf24}{\mathbf{k}}})$.
-  2. Pangkat numerus ditarik ke depan sebagai koefisien pengali: $\textcolor{#fbbf24}{\mathbf{k}} \cdot {}^b\log c \cdot {}^c\log x = M$.
-  3. Terapkan sifat rantai ${}^b\log \textcolor{#38bdf8}{c} \cdot {}^{\textcolor{#38bdf8}{c}}\log x = {}^b\log x$.
-  4. Bagi kedua ruas dengan koefisien pengali: ${}^b\log x = \frac{M}{k}$.
-  5. Konversi bentuk logaritma ke bentuk eksponen: $x = b^{\textcolor{#fbbf24}{\mathbf{m}}}$.
-  6. Evaluasi perpangkatan dan bingkai hasil akhir: $\implies \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{x = N}$}$.
+### C. Tata Letak Dua Kolom (`layout: "two-column"`)
+Ketika langkah aljabar dipecah rapi tanpa persamaan berantai, jumlah langkah menjadi 8. Jika ditumpuk secara vertikal dalam 1 kolom, layar proyektor berpotensi mengalami pemadatan font atau overflow ke bawah. Oleh karena itu, diterapkan tata letak **Dua Kolom Simetris**:
+1. **Header Rumus Induk**: Rumus awal persamaan terpampang permanen di tengah atas dengan garis horizontal pemisah di bawahnya.
+2. **Kolom Kiri (Fase 1: Sifat Logaritma — Langkah 1 s.d. 4)**:
+   - Dilengkapi badge penanda fase (titik cyan + teks cyan, misal: `Sifat Logaritma`).
+   - Berisi transformasi sifat logaritma berantai dan konversi ke bentuk eksponen ($3a - 1 = 125$).
+3. **Pemisah Vertikal Halus (*Soft Vertical Divider*)**: Garis vertikal tipis di tengah memisahkan Kolom Kiri dan Kolom Kanan pada layar desktop/proyektor.
+4. **Kolom Kanan (Fase 2: Penyelesaian Aljabar — Langkah 5 s.d. 8)**:
+   - Dilengkapi badge penanda fase (titik amber + teks amber, misal: `Penyelesaian Aljabar`).
+   - Badge menyala penuh saat langkah berpindah ke Kolom Kanan (Langkah $\ge 5$).
+   - Berisi penyelesaian persamaan aljabar linier bertahap hingga jawaban akhir dalam kotak emerald hijau bercahaya.
+5. **Keuntungan**:
+   - Tinggi vertikal terpangkas 50% (hanya 4 baris tinggi per kolom), memberikan ruang kanvas papan tulis yang sangat lapang untuk coretan spidol fisik guru.
+   - Tipografi KaTeX tetap ekstra besar (`2.15rem` s.d. `2.45rem`) tanpa perlu diperkecil.
+   - Zero-Drift Pre-Rendering: Seluruh baris di Kolom Kiri dan Kanan dirender sejak Langkah 0 dengan `invisible opacity-0 pointer-events-none`.
 
 ---
 

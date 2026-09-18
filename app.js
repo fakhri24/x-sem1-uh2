@@ -180,6 +180,8 @@ function renderSlide() {
     stage.appendChild(wrap);
   } else if (question.layout === 'split-combine') {
     renderSplitCombineSlide(question, stage);
+  } else if (question.layout === 'two-column') {
+    renderTwoColumnSlide(question, stage);
   } else if (question.layout === 'stacked') {
     renderStackedSlide(question, stage);
   } else {
@@ -482,6 +484,111 @@ function renderSplitCombineSlide(question, stage) {
   bottomWrap.appendChild(combineGrid);
   container.appendChild(bottomWrap);
 
+  stage.appendChild(container);
+}
+
+// Render Two-Column Derivation Slide (Soal 8, 9, etc.)
+function renderTwoColumnSlide(question, stage) {
+  const container = document.createElement('div');
+  container.className = 'two-col-slide w-full max-w-5xl mx-auto flex flex-col items-center py-2';
+
+  // 1. Question Header / Persistent Formula at top center
+  const headerWrap = document.createElement('div');
+  headerWrap.className = 'stacked-header text-center pb-3 mb-4 md:mb-6 border-b border-slate-200/80 dark:border-gray-800/80 w-full max-w-3xl';
+  
+  const formulaEl = document.createElement('div');
+  formulaEl.className = 'text-slate-900 dark:text-gray-100 font-serif';
+  renderKaTeX('{\\displaystyle ' + question.initialLHS + '}', formulaEl, true);
+  headerWrap.appendChild(formulaEl);
+  container.appendChild(headerWrap);
+
+  // 2. Determine Column Split
+  const total = question.steps.length;
+  const col1Count = (question.columns && question.columns[0] && question.columns[0].stepCount) || Math.ceil(total / 2);
+  const col1Steps = question.steps.slice(0, col1Count);
+  const col2Steps = question.steps.slice(col1Count);
+
+  // 3. Two Columns Container
+  const columnsWrap = document.createElement('div');
+  columnsWrap.className = 'grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 w-full relative py-2 items-start';
+
+  // Subtle vertical divider for desktop
+  const vDivider = document.createElement('div');
+  vDivider.className = 'hidden md:block absolute top-2 bottom-2 left-1/2 w-px bg-gradient-to-b from-transparent via-slate-200 dark:via-gray-800 to-transparent -translate-x-1/2 pointer-events-none';
+  columnsWrap.appendChild(vDivider);
+
+  // Helper to render one column with zero drift
+  function renderCol(colConfig, stepsSlice, defaultColor) {
+    const colEl = document.createElement('div');
+    colEl.className = 'flex flex-col items-center w-full';
+
+    // Optional Badge
+    if (colConfig && colConfig.badge) {
+      const isColActive = (state.currentStepIndex >= stepsSlice[0].stepNum);
+      const color = colConfig.badgeColor || defaultColor;
+      const dotColorClass = color === 'amber' ? 'bg-amber-400' : (color === 'emerald' ? 'bg-emerald-400' : 'bg-cyan-400');
+      const textColorClass = color === 'amber' ? 'text-amber-600 dark:text-amber-400' : (color === 'emerald' ? 'text-emerald-600 dark:text-emerald-400' : 'text-cyan-600 dark:text-cyan-400');
+
+      const badgeWrap = document.createElement('div');
+      badgeWrap.className = `flex items-center gap-1.5 mb-3 transition-all duration-200 ${
+        isColActive ? 'opacity-100 font-semibold' : 'opacity-40'
+      }`;
+      const dot = document.createElement('span');
+      dot.className = `w-2 h-2 rounded-full ${dotColorClass}`;
+      const label = document.createElement('span');
+      label.className = `text-[11px] font-bold uppercase tracking-wider ${textColorClass}`;
+      label.textContent = colConfig.badge;
+      badgeWrap.appendChild(dot);
+      badgeWrap.appendChild(label);
+      colEl.appendChild(badgeWrap);
+    }
+
+    // Grid (zero-drift: pre-rendered with invisible placeholders)
+    const grid = document.createElement('div');
+    grid.className = 'stacked-grid grid grid-cols-[min-content_auto] items-center gap-y-3 md:gap-y-4 w-fit mx-auto';
+
+    stepsSlice.forEach(stepData => {
+      const stepNum = stepData.stepNum;
+      const isVisible = (state.currentStepIndex >= stepNum);
+      const isLatest = (state.currentStepIndex === stepNum);
+      const isFinal = stepData.isFinal;
+
+      // Col 1: Operator (\implies or =)
+      const eq = document.createElement('div');
+      eq.className = `pr-3 md:pr-4 flex items-center justify-end font-sans transition-opacity duration-200 ${
+        isVisible
+          ? (isFinal
+              ? 'text-emerald-600 dark:text-emerald-400 ' + (isLatest ? 'fade-appear' : '')
+              : (isLatest ? 'text-cyan-600 dark:text-cyan-400 fade-appear' : 'text-slate-400 dark:text-gray-400'))
+          : 'invisible opacity-0 pointer-events-none'
+      }`;
+      renderKaTeX(stepData.eq || '=', eq, false);
+      grid.appendChild(eq);
+
+      // Col 2: RHS expression
+      const rhs = document.createElement('div');
+      rhs.className = `text-left flex items-center justify-start transition-opacity duration-200 ${
+        isVisible
+          ? (isFinal
+              ? 'text-emerald-600 dark:text-emerald-400 font-bold final-glow ' + (isLatest ? 'fade-appear' : '')
+              : 'text-slate-900 dark:text-gray-100 ' + (isLatest ? 'font-medium fade-appear' : ''))
+          : 'invisible opacity-0 pointer-events-none'
+      }`;
+      renderKaTeX('{\\displaystyle ' + stepData.rhs + '}', rhs, false);
+      grid.appendChild(rhs);
+    });
+
+    colEl.appendChild(grid);
+    return colEl;
+  }
+
+  const col1Config = (question.columns && question.columns[0]) || { badge: "Sifat Logaritma", badgeColor: "cyan" };
+  const col2Config = (question.columns && question.columns[1]) || { badge: "Penyelesaian Aljabar", badgeColor: "amber" };
+
+  columnsWrap.appendChild(renderCol(col1Config, col1Steps, 'cyan'));
+  columnsWrap.appendChild(renderCol(col2Config, col2Steps, 'amber'));
+
+  container.appendChild(columnsWrap);
   stage.appendChild(container);
 }
 
