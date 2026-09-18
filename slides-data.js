@@ -240,7 +240,11 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 6 — Set A",
       prompt: "Sederhanakan bentuk berikut:",
-      layout: "stacked",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Operasi Numerus", badgeColor: "cyan", stepCount: 3 },
+        { badge: "Penarikan Pangkat & Hasil", badgeColor: "amber", stepCount: 4 }
+      ],
       initialLHS: "{}^5\\log 50 - {}^5\\log 8 + {}^5\\log 4 + {}^5\\log 5 = \\dots",
       steps: [
         {
@@ -749,7 +753,11 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 6 — Set B",
       prompt: "Sederhanakan bentuk berikut:",
-      layout: "stacked",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Operasi Numerus", badgeColor: "cyan", stepCount: 3 },
+        { badge: "Penarikan Pangkat & Hasil", badgeColor: "amber", stepCount: 4 }
+      ],
       initialLHS: "{}^3\\log 15 + {}^3\\log 6 + {}^3\\log 3 - {}^3\\log 10 = \\dots",
       steps: [
         {

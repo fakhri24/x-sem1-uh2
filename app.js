@@ -499,14 +499,14 @@ function renderSplitCombineSlide(question, stage) {
   stage.appendChild(container);
 }
 
-// Render Two-Column Derivation Slide (Soal 8, 9, etc.)
+// Render Two-Column Derivation Slide (Soal 4, 6, 8, 9, 10, etc.)
 function renderTwoColumnSlide(question, stage) {
   const container = document.createElement('div');
-  container.className = 'two-col-slide w-full max-w-5xl mx-auto flex flex-col items-center py-2';
+  container.className = 'two-col-slide w-full max-w-6xl mx-auto flex flex-col items-center py-2';
 
   // 1. Question Header / Persistent Formula at top center
   const headerWrap = document.createElement('div');
-  headerWrap.className = 'stacked-header text-center pb-3 mb-4 md:mb-6 border-b border-slate-200/80 dark:border-gray-800/80 w-full max-w-3xl';
+  headerWrap.className = 'stacked-header text-center pb-3 mb-4 md:mb-6 border-b border-slate-200/80 dark:border-gray-800/80 w-full max-w-4xl';
   
   const formulaEl = document.createElement('div');
   formulaEl.className = 'text-slate-900 dark:text-gray-100 font-serif';
@@ -522,7 +522,7 @@ function renderTwoColumnSlide(question, stage) {
 
   // 3. Two Columns Container
   const columnsWrap = document.createElement('div');
-  columnsWrap.className = 'grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 w-full relative py-2 items-start';
+  columnsWrap.className = 'grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full relative py-2 items-start';
 
   // Subtle vertical divider for desktop
   const vDivider = document.createElement('div');
