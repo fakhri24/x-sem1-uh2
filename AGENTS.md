@@ -188,23 +188,18 @@ Digunakan untuk soal logaritma dengan sifat pengurangan dua suku basis sama (${}
 - **Set A**: ${}^3\log 108 - {}^3\log 4$
 - **Set B**: ${}^2\log 48 - {}^2\log 3$
 
-### A. Tata Letak (Stacked Top-Header Layout)
-- Menggunakan `layout: "stacked"` agar rumus soal awal terpampang rapi di tengah atas kanvas (`initialLHS: "... = \\dots"`), dengan pembatas horizontal tipis di bawahnya.
-- Penurunan langkah menggunakan grid 2 kolom `[min-content_auto]` yang terpusat rapi secara horizontal di bawah header, menjaga kolom tanda sama dengan (`=`) membentuk satu garis vertikal lurus yang simetris di tengah papan tulis tanpa ruang kosong berlebih di sisi kiri.
-
-### B. Alur Penurunan Pedagogis Bertahap (6 Langkah Presisi)
-1. **Langkah 1**: Sifat pengurangan logaritma basis sama diubah menjadi pembagian numerus dalam tanda kurung pecahan, dengan numerus yang dikurangkan (penyebut) disorot warna **Rose/Coral Red** (`\textcolor{#f87171}{...}`):
-   $$= {}^a\log\left(\frac{b}{\textcolor{#f87171}{c}}\right)$$
-2. **Langkah 2**: Evaluasi hasil pembagian numerus ($108 : 4 = 27$ pada Set A; $48 : 3 = 16$ pada Set B):
-   $$= {}^a\log(\dots)$$
-3. **Langkah 3**: Numerus diubah menjadi bentuk bilangan berpangkat basis $a$, dengan pangkat numerus diberi warna **Amber bold** (`\textcolor{#fbbf24}{\mathbf{...}}`):
-   $$= {}^a\log(a^{\textcolor{#fbbf24}{\mathbf{n}}})$$
-4. **Langkah 4**: Pangkat numerus ditarik ke depan sebagai koefisien pengali:
-   $$= \textcolor{#fbbf24}{\mathbf{n}} \cdot {}^a\log a$$
-5. **Langkah 5**: Penerapan identitas dasar logaritma ${}^a\log a = 1$ (warna kembali netral/putih sesuai aturan 4.B):
-   $$= n \cdot 1$$
-6. **Langkah 6**: Hasil perkalian akhir dibingkai menggunakan kapsul hijau neon emerald dengan pendar halus (*soft glow*):
-   $$= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{n}$}$$
+### A. Tata Letak Dua Kolom (`layout: "two-column"`)
+- Menghindari pemadatan font (*dense layout*). KaTeX font tetap maksimal (`2.45rem`).
+- **Kolom Kiri (Fase Pembagian Numerus — Langkah 1–2)**:
+  - Badge: `Sifat Pembagian Numerus` (Cyan)
+  - Langkah 1: Sifat pengurangan logaritma basis sama diubah menjadi pembagian numerus dalam tanda kurung pecahan, dengan numerus yang dikurangkan (penyebut) disorot warna **Rose/Coral Red** (`\textcolor{#f87171}{...}`): $= {}^a\log\left(\frac{b}{\textcolor{#f87171}{c}}\right)$
+  - Langkah 2: Evaluasi hasil pembagian pecahan numerus menjadi satu bilangan bulat: $= {}^a\log N$
+- **Kolom Kanan (Fase Penarikan Pangkat & Hasil — Langkah 3–6)**:
+  - Badge: `Penarikan Pangkat & Hasil` (Amber)
+  - Langkah 3: Numerus diubah menjadi bentuk bilangan berpangkat basis $a$, dengan pangkat numerus diberi warna **Amber bold** (`\textcolor{#fbbf24}{\mathbf{...}}`): $= {}^a\log(a^{\textcolor{#fbbf24}{\mathbf{n}}})$
+  - Langkah 4: Pangkat numerus ditarik ke depan sebagai koefisien pengali: $= \textcolor{#fbbf24}{\mathbf{n}} \cdot {}^a\log a$
+  - Langkah 5: Penerapan identitas dasar logaritma ${}^a\log a = 1$ (warna kembali netral/putih): $= n \cdot 1$
+  - Langkah 6: Hasil perkalian akhir dibingkai menggunakan kapsul hijau neon emerald dengan pendar halus (*soft glow*): $= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{n}$}$
 
 ---
 
@@ -327,32 +322,41 @@ Ketika langkah aljabar dipecah rapi tanpa persamaan berantai, jumlah langkah men
 
 ---
 
-## 14. Standar Soal Mengubah Basis Logaritma & Format Padat / Dense Layout (Standar Baku Soal 10)
+## 14. Standar Soal Mengubah Basis Logaritma & Tata Letak Dua Kolom (Standar Baku Soal 10)
 
-Digunakan untuk soal logaritma dengan sifat mengubah basis ${}^a\log b = \frac{{}^c\log b}{{}^c\log a}$, di mana penjabaran melibatkan pecahan bertumpuk multi-baris yang panjang:
+Digunakan untuk soal logaritma dengan sifat mengubah basis ${}^a\log b = \frac{{}^c\log b}{{}^c\log a}$, di mana penjabaran melibatkan rantai logaritma dan substitusi aljabar:
 - **Set A**: Jika ${}^2\log 3 = a$ dan ${}^3\log 5 = b$, tentukan nilai dari ${}^6\log 45$
 - **Set B**: Jika ${}^5\log 3 = p$ dan ${}^3\log 2 = q$, tentukan nilai dari ${}^{15}\log 20$
 
-### A. Fitur Tata Letak Padat (Dense Layout: `.dense-grid` & `.dense-header`)
-- Ketika sebuah soal memiliki $\ge 6$ baris penurunan yang didominasi oleh bentuk pecahan ($\frac{A}{B}$), atribut `dense: true` diaktifkan secara eksplisit (atau terdeteksi secara otomatis oleh `renderStackedSlide`).
-- Penyesuaian CSS otomatis:
-  - Jarak antarbaris dipadatkan: `gap-y-1.5 md:gap-y-2` (dari standar `gap-y-3 md:gap-y-4`).
-  - Ukuran tipografi KaTeX disesuaikan proporsional: font size `1.72rem` s.d. `1.95rem` (tetap ekstra besar dan sangat jelas dari baris belakang kelas, namun menghemat ruang vertikal hingga 35%).
-  - Chalkboard container dilengkapi class `my-auto` dan padding optimal `p-6 md:py-8 md:px-12` agar seluruh 6 baris pecahan dan kotak jawaban akhir tampil utuh tanpa scroll vertikal pada proyektor kelas.
+### A. Analogi Pedagogis "Stasiun Awal Keberangkatan Transit Kereta"
+- **Masalah Siswa**: Siswa sering bingung menentukan nilai basis baru $c$ pada rumus ${}^a\log b = \frac{{}^c\log b}{{}^c\log a}$.
+- **Prinsip Transit Kereta**: Rantai logaritma bertindak seperti rute kereta antarstasiun:
+  - Pada Set A: ${}^2\log 3 \cdot {}^3\log 5 \implies$ Rute Stasiun $2 \to 3 \to 5$.
+  - Pada Set B: ${}^5\log 3 \cdot {}^3\log 2 \implies$ Rute Stasiun $5 \to 3 \to 2$.
+- **Aturan Baku**: **Pilihlah basis stasiun paling awal (awal keberangkatan)**:
+  - Set A: Stasiun awal adalah **2**, maka pilih basis baru **2**.
+  - Set B: Stasiun awal adalah **5**, maka pilih basis baru **5**.
+- **Keuntungan Matematis Mutlak**:
+  Dengan memilih stasiun paling awal, seluruh suku sekunder (seperti ${}^2\log 5$ atau ${}^5\log 2$) langsung diselesaikan dengan **perkalian maju searah** (${}^2\log 3 \cdot {}^3\log 5 = a \cdot b$ atau ${}^5\log 3 \cdot {}^3\log 2 = p \cdot q$). Siswa **terbebas 100% dari pecahan bertumpuk** ($1/a$ atau $1/p$) yang membingungkan.
+- **Tampilan UI**: Ditampilkan sebagai petunjuk visual (*hint*) kapsul amber elegan di bawah prompt soal:
+  `💡 Basis baru = Stasiun awal keberangkatan transit kereta: 2 → 3 → 5 (pilih basis 2)`
 
-### B. Alur Penurunan Pedagogis Bertahap (6 Langkah Presisi)
-1. **Langkah 1**: Ubah ke bentuk pecahan basis perantara yang paling sering muncul dari yang diketahui (${}^c\log$), dengan **Numerus asal** disorot **Amber** (`\textcolor{#fbbf24}{...}`) di pembilang dan **Basis asal** disorot **Cyan** (`\textcolor{#38bdf8}{...}`) di penyebut:
-   $$= \frac{{}^c\log \textcolor{#fbbf24}{b}}{{{}^c\log \textcolor{#38bdf8}{a}}}$$
-2. **Langkah 2**: Faktorkan numerus pembilang dan penyebut menjadi perkalian faktor-faktor prima (warna kembali netral):
-   $$= \frac{{}^c\log(m \cdot n)}{{}^c\log(p \cdot q)}$$
-3. **Langkah 3**: Jabarkan perkalian numerus menjadi penjumlahan logaritma, dan ubah bilangan komposit menjadi bilangan berpangkat basis:
-   $$= \frac{{}^c\log(f^{\textcolor{#fbbf24}{\mathbf{2}}}) + {}^c\log n}{{}^c\log p + {}^c\log q}$$
-4. **Langkah 4**: Tarik pangkat numerus ke depan, dan gunakan sifat perkalian rantai jika ada suku yang basisnya perlu ditranslasikan (${}^2\log 5 = {}^2\log 3 \cdot {}^3\log 5$):
-   $$= \frac{\textcolor{#fbbf24}{\mathbf{2}} \cdot {}^c\log 3 + ({}^2\log 3 \cdot {}^3\log 5)}{1 + {}^2\log 3}$$
-5. **Langkah 5**: Substitusi variabel aljabar ($a, b$ atau $p, q$):
-   $$= \frac{2a + ab}{1 + a}$$
-6. **Langkah 6**: Bingkai jawaban akhir aljabar dalam kapsul hijau neon emerald bercahaya:
-   $$= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{\frac{2a + ab}{a + 1}}$}$$
+### B. Tata Letak Dua Kolom (`layout: "two-column"`)
+Alih-alih memadatkan font (*dense layout*), soal dipecah menjadi 8 langkah murni satu-satu dalam format **2 Kolom Simetris (4 Kiri + 4 Kanan)**, mempertahankan ukuran KaTeX ekstra besar (`2.45rem`):
+
+- **Kolom Kiri (Fase 1: Pengubahan Basis & Faktorisasi — Langkah 1–4)**:
+  - Badge: `Pengubahan Basis & Faktorisasi` (Cyan)
+  - Langkah 1: Terapkan sifat mengubah basis dengan basis stasiun awal: $= \frac{{}^c\log \textcolor{#fbbf24}{b}}{{{}^c\log \textcolor{#38bdf8}{a}}}$
+  - Langkah 2: Faktorkan numerus pembilang dan penyebut menjadi perkalian faktor: $= \frac{{}^c\log(p \cdot q)}{{}^c\log(r \cdot s)}$
+  - Langkah 3: Terapkan sifat perkalian numerus menjadi penjumlahan logaritma: $= \frac{{}^c\log p + {}^c\log q}{{}^c\log r + {}^c\log s}$
+  - Langkah 4: Nyatakan bilangan komposit menjadi bilangan berpangkat: $= \frac{{}^c\log(m^{\textcolor{#fbbf24}{\mathbf{2}}}) + {}^c\log q}{{}^c\log r + {}^c\log s}$
+
+- **Kolom Kanan (Fase 2: Transit Kereta & Aljabar — Langkah 5–8)**:
+  - Badge: `Transit Kereta & Aljabar` (Amber)
+  - Langkah 5: Pangkat numerus ditarik ke depan dan selesaikan identitas dasar ${}^c\log c = 1$: $= \frac{\textcolor{#fbbf24}{\mathbf{2}} \cdot {}^c\log m + {}^c\log q}{1 + {}^c\log s}$
+  - Langkah 6: Ekspansi suku rantai transit kereta (${}^2\log 5 \to {}^2\log 3 \cdot {}^3\log 5$ atau ${}^5\log 2 \to {}^5\log 3 \cdot {}^3\log 2$): $= \frac{2 \cdot {}^c\log m + ({}^c\log m \cdot {}^m\log q)}{1 + {}^c\log s}$
+  - Langkah 7: Substitusi variabel aljabar yang diketahui ($a, b$ atau $p, q$): $= \frac{2(a) + (a)(b)}{1 + a}$
+  - Langkah 8: Bentuk aljabar paling sederhana dalam kotak hijau neon emerald: $= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{\frac{2a + ab}{a + 1}}$}$
 
 
 

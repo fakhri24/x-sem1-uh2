@@ -142,7 +142,11 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 4 — Set A",
       prompt: "Tentukan nilai dari:",
-      layout: "stacked",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Pembagian Numerus", badgeColor: "cyan", stepCount: 2 },
+        { badge: "Penarikan Pangkat & Hasil", badgeColor: "amber", stepCount: 4 }
+      ],
       initialLHS: "{}^3\\log 108 - {}^3\\log 4 = \\dots",
       steps: [
         {
@@ -450,8 +454,12 @@ const SLIDES_DATA = {
       category: "Simulasi Mandiri",
       title: "Soal 10 — Set A",
       prompt: "Jika ${}^2\\log 3 = a$ dan ${}^3\\log 5 = b$, tentukan nilai dari:",
-      layout: "stacked",
-      dense: true,
+      hint: "💡 Basis baru = Stasiun awal keberangkatan transit kereta: $2 \\to 3 \\to 5$ (pilih basis $2$)",
+      layout: "two-column",
+      columns: [
+        { badge: "Pengubahan Basis & Faktorisasi", badgeColor: "cyan", stepCount: 4 },
+        { badge: "Transit Kereta & Aljabar", badgeColor: "amber", stepCount: 4 }
+      ],
       initialLHS: "{}^6\\log 45 = \\dots",
       steps: [
         {
@@ -469,23 +477,35 @@ const SLIDES_DATA = {
         {
           stepNum: 3,
           eq: "=",
-          rhs: "\\frac{{}^2\\log(3^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^2\\log 5}{{}^2\\log 2 + {}^2\\log 3}",
+          rhs: "\\frac{{}^2\\log 9 + {}^2\\log 5}{{}^2\\log 2 + {}^2\\log 3}",
           isFinal: false
         },
         {
           stepNum: 4,
           eq: "=",
-          rhs: "\\frac{\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^2\\log 3 + ({}^2\\log 3 \\cdot {}^3\\log 5)}{1 + {}^2\\log 3}",
+          rhs: "\\frac{{}^2\\log(3^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^2\\log 5}{{}^2\\log 2 + {}^2\\log 3}",
           isFinal: false
         },
         {
           stepNum: 5,
           eq: "=",
-          rhs: "\\frac{2(a) + (a)(b)}{1 + a}",
+          rhs: "\\frac{\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^2\\log 3 + {}^2\\log 5}{1 + {}^2\\log 3}",
           isFinal: false
         },
         {
           stepNum: 6,
+          eq: "=",
+          rhs: "\\frac{2 \\cdot {}^2\\log 3 + ({}^2\\log 3 \\cdot {}^3\\log 5)}{1 + {}^2\\log 3}",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "=",
+          rhs: "\\frac{2(a) + (a)(b)}{1 + a}",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
           eq: "=",
           rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{2a + ab}{a + 1}}$}",
           isFinal: true
@@ -631,7 +651,11 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 4 — Set B",
       prompt: "Tentukan nilai dari:",
-      layout: "stacked",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Pembagian Numerus", badgeColor: "cyan", stepCount: 2 },
+        { badge: "Penarikan Pangkat & Hasil", badgeColor: "amber", stepCount: 4 }
+      ],
       initialLHS: "{}^2\\log 48 - {}^2\\log 3 = \\dots",
       steps: [
         {
@@ -939,8 +963,12 @@ const SLIDES_DATA = {
       category: "Penguatan Cermin",
       title: "Soal 10 — Set B",
       prompt: "Jika ${}^5\\log 3 = p$ dan ${}^3\\log 2 = q$, tentukan nilai dari:",
-      layout: "stacked",
-      dense: true,
+      hint: "💡 Basis baru = Stasiun awal keberangkatan transit kereta: $5 \\to 3 \\to 2$ (pilih basis $5$)",
+      layout: "two-column",
+      columns: [
+        { badge: "Pengubahan Basis & Faktorisasi", badgeColor: "cyan", stepCount: 4 },
+        { badge: "Transit Kereta & Aljabar", badgeColor: "amber", stepCount: 4 }
+      ],
       initialLHS: "{}^{15}\\log 20 = \\dots",
       steps: [
         {
@@ -958,23 +986,35 @@ const SLIDES_DATA = {
         {
           stepNum: 3,
           eq: "=",
-          rhs: "\\frac{{}^5\\log(2^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^5\\log 5}{{}^5\\log 3 + {}^5\\log 5}",
+          rhs: "\\frac{{}^5\\log 4 + {}^5\\log 5}{{}^5\\log 3 + {}^5\\log 5}",
           isFinal: false
         },
         {
           stepNum: 4,
           eq: "=",
-          rhs: "\\frac{\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot ({}^5\\log 3 \\cdot {}^3\\log 2) + 1}{{}^5\\log 3 + 1}",
+          rhs: "\\frac{{}^5\\log(2^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^5\\log 5}{{}^5\\log 3 + {}^5\\log 5}",
           isFinal: false
         },
         {
           stepNum: 5,
           eq: "=",
-          rhs: "\\frac{2(p \\cdot q) + 1}{p + 1}",
+          rhs: "\\frac{\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^5\\log 2 + 1}{{}^5\\log 3 + 1}",
           isFinal: false
         },
         {
           stepNum: 6,
+          eq: "=",
+          rhs: "\\frac{2 \\cdot ({}^5\\log 3 \\cdot {}^3\\log 2) + 1}{{}^5\\log 3 + 1}",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "=",
+          rhs: "\\frac{2(p \\cdot q) + 1}{p + 1}",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
           eq: "=",
           rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{2pq + 1}{p + 1}}$}",
           isFinal: true

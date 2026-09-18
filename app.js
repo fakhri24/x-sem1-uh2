@@ -158,6 +158,18 @@ function renderSlide() {
   const promptEl = document.getElementById('question-prompt');
   renderPromptWithKaTeX(question.prompt || 'Tentukan nilai dari:', promptEl);
 
+  // Prompt hint (if any, e.g. Soal 10 transit analogy)
+  const hintEl = document.getElementById('question-hint');
+  if (hintEl) {
+    if (question.hint) {
+      hintEl.classList.remove('hidden');
+      renderPromptWithKaTeX(question.hint, hintEl);
+    } else {
+      hintEl.classList.add('hidden');
+      hintEl.innerHTML = '';
+    }
+  }
+
   // 2. Render Chalkboard Stage
   const stage = document.getElementById('chalkboard-stage');
   stage.innerHTML = '';
