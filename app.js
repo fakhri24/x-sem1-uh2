@@ -452,7 +452,7 @@ function renderSplitCombineSlide(question, stage) {
   cLhs.className = `text-right text-slate-900 dark:text-gray-100 flex items-center justify-end transition-opacity duration-200 ${
     isLhsVisible ? (isLhsLatest ? 'fade-appear' : '') : 'invisible opacity-0 pointer-events-none'
   }`;
-  renderKaTeX('{\\displaystyle ' + cData.initialLHS + '}', cLhs, false);
+  renderKaTeX('{\\displaystyle ' + (cData.initialLHS || question.initialLHS || '') + '}', cLhs, false);
   combineGrid.appendChild(cLhs);
 
   // Step 12: Combine Row 1 RHS (= 8 + 9)

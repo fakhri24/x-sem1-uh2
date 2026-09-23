@@ -1080,7 +1080,7 @@ const SLIDES_DATA = {
       totalSteps: 13,
       split: {
         left: {
-          title: "Suku Pertama",
+          badge: "Suku Pertama",
           badgeColor: "cyan",
           initialLHS: "9^{{}^3\\log 5}",
           steps: [
@@ -1088,11 +1088,11 @@ const SLIDES_DATA = {
             { stepNum: 2, eq: "=", rhs: "3^{\\textcolor{#38bdf8}{\\mathbf{2}} \\cdot {}^3\\log 5}" },
             { stepNum: 3, eq: "=", rhs: "3^{{}^3\\log(5^{\\textcolor{#38bdf8}{\\mathbf{2}}})}" },
             { stepNum: 4, eq: "=", rhs: "5^{\\textcolor{#38bdf8}{\\mathbf{2}}}" },
-            { stepNum: 5, eq: "=", rhs: "\\textcolor{#38bdf8}{\\mathbf{25}}" }
+            { stepNum: 5, eq: "=", rhs: "\\textcolor{#38bdf8}{\\mathbf{25}}", isSubFinal: true }
           ]
         },
         right: {
-          title: "Suku Kedua",
+          badge: "Suku Kedua",
           badgeColor: "amber",
           initialLHS: "4^{{}^2\\log 1}",
           steps: [
@@ -1100,10 +1100,13 @@ const SLIDES_DATA = {
             { stepNum: 7, eq: "=", rhs: "2^{\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^2\\log 1}" },
             { stepNum: 8, eq: "=", rhs: "2^{{}^2\\log(1^{\\textcolor{#fbbf24}{\\mathbf{2}}})}" },
             { stepNum: 9, eq: "=", rhs: "1^{\\textcolor{#fbbf24}{\\mathbf{2}}}" },
-            { stepNum: 10, eq: "=", rhs: "\\textcolor{#fbbf24}{\\mathbf{1}}" }
+            { stepNum: 10, eq: "=", rhs: "\\textcolor{#fbbf24}{\\mathbf{1}}", isSubFinal: true }
           ]
         },
         combine: {
+          badge: "Penggabungan & Hasil Akhir",
+          badgeColor: "emerald",
+          initialLHS: "9^{{}^3\\log 5} + 4^{{}^2\\log 1}",
           lhsStepNum: 11,
           steps: [
             {
