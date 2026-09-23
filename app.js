@@ -141,18 +141,21 @@ function renderSlide() {
   document.getElementById('slide-badge-num').textContent = `Soal ${state.currentQuestionIndex + 1} dari ${totalQuestions}`;
   document.getElementById('slide-counter-badge').textContent = `${state.currentQuestionIndex + 1} / ${totalQuestions}`;
 
-  // Set switcher button states
-  const btnSetA = document.getElementById('btn-set-a');
-  const btnSetB = document.getElementById('btn-set-b');
-  if (btnSetA && btnSetB) {
-    if (state.currentSet === 'setA') {
-      btnSetA.className = 'w-full py-1.5 px-2.5 rounded-lg transition-all text-white bg-cyan-600 shadow-sm text-left flex items-center justify-between text-xs font-bold';
-      btnSetB.className = 'w-full py-1.5 px-2.5 rounded-lg transition-all text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white text-left flex items-center justify-between text-xs font-semibold';
+  // Set switcher button states (Set A, Set B, UH Asli)
+  const setBtns = [
+    { id: 'btn-set-a', key: 'setA' },
+    { id: 'btn-set-b', key: 'setB' },
+    { id: 'btn-set-uh', key: 'setUH' }
+  ];
+  setBtns.forEach(({ id, key }) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (state.currentSet === key) {
+      el.className = 'w-full py-1.5 px-2.5 rounded-lg transition-all text-white bg-cyan-600 shadow-sm text-left flex items-center justify-between text-xs font-bold';
     } else {
-      btnSetB.className = 'w-full py-1.5 px-2.5 rounded-lg transition-all text-white bg-cyan-600 shadow-sm text-left flex items-center justify-between text-xs font-bold';
-      btnSetA.className = 'w-full py-1.5 px-2.5 rounded-lg transition-all text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white text-left flex items-center justify-between text-xs font-semibold';
+      el.className = 'w-full py-1.5 px-2.5 rounded-lg transition-all text-slate-600 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white text-left flex items-center justify-between text-xs font-semibold';
     }
-  }
+  });
 
   // Prompt text
   const promptEl = document.getElementById('question-prompt');

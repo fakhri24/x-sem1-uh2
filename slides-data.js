@@ -1029,5 +1029,537 @@ const SLIDES_DATA = {
         }
       ]
     }
+  ],
+  setUH: [
+    {
+      id: 1,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 1 — UH Asli",
+      prompt: "Tentukan nilai dari:",
+      initialLHS: "{}^{16}\\log 64",
+      steps: [
+        {
+          stepNum: 1,
+          position: "beside",
+          eq: "=",
+          rhs: "{}^{2^{\\textcolor{#38bdf8}{\\mathbf{4}}}} \\log 2^{\\textcolor{#fbbf24}{\\mathbf{6}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          position: "newline",
+          eq: "=",
+          rhs: "\\frac{\\textcolor{#fbbf24}{\\mathbf{6}}}{\\textcolor{#38bdf8}{\\mathbf{4}}} \\cdot {}^2\\log 2",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          position: "newline",
+          eq: "=",
+          rhs: "\\frac{3}{2} \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          position: "newline",
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{3}{2}}$}",
+          isFinal: true
+        }
+      ]
+    },
+    {
+      id: 2,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 2 — UH Asli",
+      prompt: "Tentukan nilai dari:",
+      initialLHS: "9^{{}^3\\log 5} + 4^{{}^2\\log 1}",
+      layout: "split-combine",
+      totalSteps: 13,
+      split: {
+        left: {
+          title: "Suku Pertama",
+          badgeColor: "cyan",
+          initialLHS: "9^{{}^3\\log 5}",
+          steps: [
+            { stepNum: 1, eq: "=", rhs: "(3^{\\textcolor{#38bdf8}{\\mathbf{2}}})^{{}^3\\log 5}" },
+            { stepNum: 2, eq: "=", rhs: "3^{\\textcolor{#38bdf8}{\\mathbf{2}} \\cdot {}^3\\log 5}" },
+            { stepNum: 3, eq: "=", rhs: "3^{{}^3\\log(5^{\\textcolor{#38bdf8}{\\mathbf{2}}})}" },
+            { stepNum: 4, eq: "=", rhs: "5^{\\textcolor{#38bdf8}{\\mathbf{2}}}" },
+            { stepNum: 5, eq: "=", rhs: "\\textcolor{#38bdf8}{\\mathbf{25}}" }
+          ]
+        },
+        right: {
+          title: "Suku Kedua",
+          badgeColor: "amber",
+          initialLHS: "4^{{}^2\\log 1}",
+          steps: [
+            { stepNum: 6, eq: "=", rhs: "(2^{\\textcolor{#fbbf24}{\\mathbf{2}}})^{{}^2\\log 1}" },
+            { stepNum: 7, eq: "=", rhs: "2^{\\textcolor{#fbbf24}{\\mathbf{2}} \\cdot {}^2\\log 1}" },
+            { stepNum: 8, eq: "=", rhs: "2^{{}^2\\log(1^{\\textcolor{#fbbf24}{\\mathbf{2}}})}" },
+            { stepNum: 9, eq: "=", rhs: "1^{\\textcolor{#fbbf24}{\\mathbf{2}}}" },
+            { stepNum: 10, eq: "=", rhs: "\\textcolor{#fbbf24}{\\mathbf{1}}" }
+          ]
+        },
+        combine: {
+          lhsStepNum: 11,
+          steps: [
+            {
+              stepNum: 12,
+              eq: "=",
+              rhs: "\\textcolor{#38bdf8}{\\mathbf{25}} + \\textcolor{#fbbf24}{\\mathbf{1}}",
+              isFinal: false
+            },
+            {
+              stepNum: 13,
+              eq: "=",
+              rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{26}$}",
+              isFinal: true
+            }
+          ]
+        }
+      }
+    },
+    {
+      id: 3,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 3 — UH Asli",
+      prompt: "Sederhanakan perkalian logaritma berikut:",
+      layout: "stacked",
+      initialLHS: "{}^5\\log 3 \\cdot {}^2\\log 25 \\cdot {}^3\\log 16 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^5\\log 3 \\cdot {}^2\\log(5^{\\textcolor{#38bdf8}{\\mathbf{2}}}) \\cdot {}^3\\log(2^{\\textcolor{#fbbf24}{\\mathbf{4}}})",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^5\\log 3 \\cdot (\\textcolor{#38bdf8}{\\mathbf{2}} \\cdot {}^2\\log 5) \\cdot (\\textcolor{#fbbf24}{\\mathbf{4}} \\cdot {}^3\\log 2)",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "(\\textcolor{#38bdf8}{\\mathbf{2}} \\cdot \\textcolor{#fbbf24}{\\mathbf{4}}) \\cdot ({}^5\\log 3 \\cdot {}^3\\log 2 \\cdot {}^2\\log 5)",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "8 \\cdot ({}^5\\log 3 \\cdot {}^3\\log 2 \\cdot {}^2\\log 5)",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "8 \\cdot ({}^5\\log 2 \\cdot {}^2\\log 5)",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "8 \\cdot {}^5\\log 5",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "=",
+          rhs: "8 \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{8}$}",
+          isFinal: true
+        }
+      ]
+    },
+    {
+      id: 4,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 4 — UH Asli",
+      prompt: "Tentukan nilai dari:",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Pembagian Numerus", badgeColor: "cyan", stepCount: 2 },
+        { badge: "Penarikan Pangkat & Hasil", badgeColor: "amber", stepCount: 4 }
+      ],
+      initialLHS: "{}^3\\log 162 - {}^3\\log 6 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^3\\log\\left(\\frac{162}{\\textcolor{#f87171}{6}}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^3\\log 27",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^3\\log(3^{\\textcolor{#fbbf24}{\\mathbf{3}}})",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{3}} \\cdot {}^3\\log 3",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "3 \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{3}$}",
+          isFinal: true
+        }
+      ]
+    },
+    {
+      id: 5,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 5 — UH Asli",
+      prompt: "Jika diketahui ${}^3\\log 2 = a$ dan ${}^3\\log 7 = b$, nyatakan nilai dari:",
+      layout: "stacked",
+      initialLHS: "{}^3\\log 56 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^3\\log(8 \\cdot 7)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^3\\log 8 + {}^3\\log 7",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^3\\log(2^{\\textcolor{#fbbf24}{\\mathbf{3}}}) + {}^3\\log 7",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{3}} \\cdot {}^3\\log 2 + {}^3\\log 7",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "3 \\cdot a + b",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{3a + b}$}",
+          isFinal: true
+        }
+      ]
+    },
+    {
+      id: 6,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 6 — UH Asli",
+      prompt: "Hitung nilai dari:",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Operasi Numerus", badgeColor: "cyan", stepCount: 3 },
+        { badge: "Penarikan Pangkat & Hasil", badgeColor: "amber", stepCount: 4 }
+      ],
+      initialLHS: "{}^2\\log 48 + {}^2\\log 6 - {}^2\\log 18 + {}^2\\log 2 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "{}^2\\log\\left(\\frac{48 \\cdot 6 \\cdot 2}{\\textcolor{#f87171}{18}}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "{}^2\\log\\left(\\frac{576}{18}\\right)",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^2\\log 32",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "{}^2\\log(2^{\\textcolor{#fbbf24}{\\mathbf{5}}})",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "\\textcolor{#fbbf24}{\\mathbf{5}} \\cdot {}^2\\log 2",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "5 \\cdot 1",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{5}$}",
+          isFinal: true
+        }
+      ]
+    },
+    {
+      id: 7,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 7 — UH Asli",
+      prompt: "Sederhanakan bentuk pecahan aljabar logaritma berikut:",
+      layout: "stacked",
+      initialLHS: "\\frac{({}^2\\log a)^2 - ({}^2\\log b)^2}{{}^2\\log a + {}^2\\log b} = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "\\frac{({}^2\\log a + {}^2\\log b)({}^2\\log a - {}^2\\log b)}{{}^2\\log a + {}^2\\log b}",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "\\frac{\\textcolor{#38bdf8}{({}^2\\log a + {}^2\\log b)}({}^2\\log a - {}^2\\log b)}{\\textcolor{#38bdf8}{({}^2\\log a + {}^2\\log b)}}",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "{}^2\\log a - {}^2\\log b",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{{}^2\\log\\left(\\frac{a}{b}\\right)}$}",
+          isFinal: true
+        }
+      ]
+    },
+    {
+      id: 8,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 8 — UH Asli",
+      prompt: "Tentukan nilai $n$ yang memenuhi persamaan logaritma:",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Logaritma", badgeColor: "cyan", stepCount: 4 },
+        { badge: "Penyelesaian Aljabar", badgeColor: "amber", stepCount: 4 }
+      ],
+      initialLHS: "{}^y\\log(4n + 5) \\cdot {}^5\\log y = 2",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "\\implies",
+          rhs: "{}^5\\log y \\cdot {}^y\\log(4n + 5) = 2",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "\\implies",
+          rhs: "{}^5\\log \\textcolor{#38bdf8}{y} \\cdot {}^{\\textcolor{#38bdf8}{y}}\\log(4n + 5) = 2",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "\\implies",
+          rhs: "{}^5\\log(4n + 5) = 2",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "\\implies",
+          rhs: "4n + 5 = 5^{\\textcolor{#fbbf24}{\\mathbf{2}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "\\implies",
+          rhs: "4n + 5 = 25",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "\\implies",
+          rhs: "4n = 25 - 5",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "\\implies",
+          rhs: "4n = 20",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
+          eq: "\\implies",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{n = 5}$}",
+          isFinal: true
+        }
+      ]
+    },
+    {
+      id: 9,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 9 — UH Asli",
+      prompt: "Tentukan nilai $x$ yang memenuhi persamaan logaritma berikut:",
+      layout: "two-column",
+      columns: [
+        { badge: "Sifat Logaritma", badgeColor: "cyan", stepCount: 4 },
+        { badge: "Penyelesaian Aljabar", badgeColor: "amber", stepCount: 4 }
+      ],
+      initialLHS: "{}^3\\log x \\cdot {}^2\\log 27 = 9",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "\\implies",
+          rhs: "{}^3\\log x \\cdot {}^2\\log(3^{\\textcolor{#fbbf24}{\\mathbf{3}}}) = 9",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "\\implies",
+          rhs: "{}^3\\log x \\cdot (\\textcolor{#fbbf24}{\\mathbf{3}} \\cdot {}^2\\log 3) = 9",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "\\implies",
+          rhs: "3 \\cdot ({}^2\\log 3 \\cdot {}^3\\log x) = 9",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "\\implies",
+          rhs: "3 \\cdot {}^2\\log x = 9",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "\\implies",
+          rhs: "{}^2\\log x = \\frac{9}{3}",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "\\implies",
+          rhs: "{}^2\\log x = 3",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "\\implies",
+          rhs: "x = 2^{\\textcolor{#fbbf24}{\\mathbf{3}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
+          eq: "\\implies",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{x = 8}$}",
+          isFinal: true
+        }
+      ]
+    },
+    {
+      id: 10,
+      set: "UH Asli",
+      category: "Naskah Resmi",
+      title: "Soal 10 — UH Asli",
+      prompt: "Jika diketahui ${}^2\\log 5 = a$ dan ${}^5\\log 3 = b$, tentukan nilai dari:",
+      hint: "💡 Basis baru = Stasiun awal keberangkatan transit kereta: $2 \\to 5 \\to 3$ (pilih basis $2$)",
+      layout: "two-column",
+      columns: [
+        { badge: "Pengubahan Basis & Faktorisasi", badgeColor: "cyan", stepCount: 4 },
+        { badge: "Transit Kereta & Aljabar", badgeColor: "amber", stepCount: 4 }
+      ],
+      initialLHS: "{}^{12}\\log 20 = \\dots",
+      steps: [
+        {
+          stepNum: 1,
+          eq: "=",
+          rhs: "\\frac{{}^2\\log \\textcolor{#fbbf24}{20}}{{{}^2\\log \\textcolor{#38bdf8}{12}}}",
+          isFinal: false
+        },
+        {
+          stepNum: 2,
+          eq: "=",
+          rhs: "\\frac{{}^2\\log(4 \\cdot 5)}{{}^2\\log(4 \\cdot 3)}",
+          isFinal: false
+        },
+        {
+          stepNum: 3,
+          eq: "=",
+          rhs: "\\frac{{}^2\\log 4 + {}^2\\log 5}{{}^2\\log 4 + {}^2\\log 3}",
+          isFinal: false
+        },
+        {
+          stepNum: 4,
+          eq: "=",
+          rhs: "\\frac{{}^2\\log(2^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^2\\log 5}{{}^2\\log(2^{\\textcolor{#fbbf24}{\\mathbf{2}}}) + {}^2\\log 3}",
+          isFinal: false
+        },
+        {
+          stepNum: 5,
+          eq: "=",
+          rhs: "\\frac{2 + {}^2\\log 5}{2 + {}^2\\log 3}",
+          isFinal: false
+        },
+        {
+          stepNum: 6,
+          eq: "=",
+          rhs: "\\frac{2 + {}^2\\log 5}{2 + ({}^2\\log 5 \\cdot {}^5\\log 3)}",
+          isFinal: false
+        },
+        {
+          stepNum: 7,
+          eq: "=",
+          rhs: "\\frac{2 + a}{2 + (a)(b)}",
+          isFinal: false
+        },
+        {
+          stepNum: 8,
+          eq: "=",
+          rhs: "\\fcolorbox{#10b981}{#064e3b}{$\\textcolor{#6ee7b7}{\\frac{2 + a}{2 + ab}}$}",
+          isFinal: true
+        }
+      ]
+    }
   ]
 };

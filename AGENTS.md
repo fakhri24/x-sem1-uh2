@@ -351,6 +351,43 @@ Alih-alih memadatkan font (*dense layout*), soal dipecah menjadi 8 langkah murni
   - Langkah 7: Substitusi variabel aljabar yang diketahui ($a, b$ atau $p, q$): $= \frac{2(a) + (a)(b)}{1 + a}$
   - Langkah 8: Bentuk aljabar paling sederhana dalam kotak hijau neon emerald: $= \fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{\frac{2a + ab}{a + 1}}$}$
 
+---
+
+## 15. Standar Paket Soal Ketiga: Naskah Ulangan Harian Asli (UH Asli / P8)
+
+Untuk mendukung pembahasan komprehensif setelah ulangan harian berlangsung, aplikasi slide interaktif dilengkapi paket soal ketiga: **`UH Asli` (Naskah Resmi P8)** di samping `Set A` (Simulasi Mandiri) dan `Set B` (Penguatan Cermin).
+
+### A. Arsitektur 3-Set Switcher
+1. **Left Rail Navigasi**: Switcher paket soal menampilkan 3 tombol kompak tersusun vertikal:
+   - **Set A** (Mandiri)
+   - **Set B** (Cermin)
+   - **UH Asli** (Resmi) — memanggil `switchSet('setUH')`
+2. **Sinkronisasi Parameter URL Penuh**:
+   - `?set=setUH&q=X&step=Y`
+   - Memungkinkan guru langsung membagikan tautan nomor soal tertentu pada paket naskah resmi ujian.
+
+### B. Pemetaan 1-ke-1 Komparatif 10 Soal Wajib Naskah Asli UH 2
+Setiap nomor soal pada naskah asli UH 2 memiliki padanan langsung dengan standar pedagogi yang dibangun pada Set A dan Set B:
+
+| No | Topik & Sifat Logaritma | Soal Naskah Asli UH 2 | Jawaban Akhir | Format Layout KaTeX |
+|:--:|:---|:---|:---:|:---|
+| **1** | Pangkat Basis & Numerus | $${}^{16}\log 64$$ | $\frac{3}{2}$ ($1{,}5$) | Standard In-Place Reveal (4 langkah) |
+| **2** | Eksponen Berpangkat Logaritma | $$9^{{}^3\log 5} + 4^{{}^2\log 1}$$ | $26$ | Split-Combine (2 Kolom Sejajar + Bawah, 13 langkah) |
+| **3** | Perkalian Berantai 3 Suku | $${}^5\log 3 \cdot {}^2\log 25 \cdot {}^3\log 16$$ | $8$ | Stacked Top-Header (8 langkah) |
+| **4** | Sifat Selisih / Pembagian Numerus | $${}^3\log 162 - {}^3\log 6$$ | $3$ | Two-Column Simetris (6 langkah) |
+| **5** | Substitusi Variabel Logaritma | $${}^3\log 56 \quad ({}^3\log 2=a, {}^3\log 7=b)$$ | $3a + b$ | Stacked Top-Header (6 langkah) |
+| **6** | Operasi Campuran 4 Suku | $${}^2\log 48 + {}^2\log 6 - {}^2\log 18 + {}^2\log 2$$ | $5$ | Two-Column Simetris (7 langkah) |
+| **7** | Aljabar Selisih Kuadrat $A^2 - B^2$ | $$\frac{({}^2\log a)^2 - ({}^2\log b)^2}{{}^2\log a + {}^2\log b}$$ | ${}^2\log\left(\frac{a}{b}\right)$ | Stacked Top-Header (4 langkah) |
+| **8** | Persamaan Rantai Linear | $${}^y\log(4n + 5) \cdot {}^5\log y = 2$$ | $n = 5$ | Two-Column (`\implies` Spine, 8 langkah, tanpa persamaan berantai) |
+| **9** | Persamaan Linear Ekstraksi Basis | $${}^3\log x \cdot {}^2\log 27 = 9$$ | $x = 8$ | Two-Column (`\implies` Spine, 8 langkah, tanpa persamaan berantai) |
+| **10** | Pecah Basis Transit Kereta | $${}^{12}\log 20 \quad ({}^2\log 5=a, {}^5\log 3=b)$$ | $\frac{2 + a}{2 + ab}$ | Two-Column Simetris + Hint Stasiun Awal Kereta (8 langkah) |
+
+### C. Konsistensi Tipografi & Zero-Drift
+- Seluruh 10 soal di-render sejak Langkah 0 ke dalam fixed-geometry grid dengan class `invisible opacity-0 pointer-events-none`.
+- Seluruh variabel aljabar ($a, b, n, x, y$) tetap menggunakan font murni matematika KaTeX (*math italic*) tanpa pembungkusan `\mathbf`.
+- Kapsul jawaban akhir menggunakan format baku hijau neon emerald bercahaya: `\fcolorbox{#10b981}{#064e3b}{$\textcolor{#6ee7b7}{...}$}`.
+
+
 
 
 
